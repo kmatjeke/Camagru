@@ -1,0 +1,11 @@
+BODY {
+    background-color: grey;
+}
+
+.center_div {
+    
+    background-color: white;
+    width: 400px;
+    height: 300px;
+    border-radius: 15px 15px;
+}

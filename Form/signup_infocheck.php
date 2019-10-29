@@ -5,25 +5,28 @@ include_once '../functions/signup.class.php';
 $mail = $_POST['email'];
 $username = $_POST['username'];
 $password = $_POST['password'];
+$re_password = $_POST['re-password'];
 $_SESSION['error'] = null;
-if ($mail == "" || $mail == null || $username == "" || $username == null || $password == "" || $password == null) {
-  $_SESSION['error'] = "You need to fill all fields";
-  header("Location: ../signup.php");
-  return;
-}
+
 if(!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
   $_SESSION['error'] = "You need to enter a valid email";
-  header("Location: ../signup.php");
+  header("Location: sign-up.form.php");
   return;
 }
 if (strlen($username) > 50 || strlen($username) < 3) {
   $_SESSION['error'] = "Username should be beetween 3 and 50 characters";
-  header("Location: ../signup.php");
+  header("Location: sign-up.form.php");
   return;
 }
 if (strlen($password) < 3) {
   $_SESSION['error'] = "Password should be beetween 3 and 255 characters";
-  header("Location: ../signup.php");
+  header("Location: sign-up.form.php");
+  return;
+}
+if (!($password == $re_password))
+{
+  $_SESSION['error'] = "Passwords do not match!";
+  header("Location: sign-up.form.php");
   return;
 }
 $url = $_SERVER['HTTP_HOST'] . str_replace("/forms/signup.php", "", $_SERVER['REQUEST_URI']);

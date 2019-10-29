@@ -9,6 +9,7 @@ session_start();
         <title>CAMAGRU</title>
     </HEAD>
     <BODY>
+        <div class="bg-image"></div>
         <div class="page">
             <img src="imgs/Instagram-icon.png" alt="Insta Logo" id="instalogo">
             <div class = "Login">
@@ -45,7 +46,6 @@ session_start();
                     </form>
                 </div> -->
             </div>
-                </div>
-        <!-- <img src="https://www.medicalnewstoday.com/content/images/articles/325/325466/man-walking-dog.jpg" alt="mandog" class="bg-image"> -->
+        </div>
     </BODY>
 </html>

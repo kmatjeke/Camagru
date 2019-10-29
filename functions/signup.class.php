@@ -1,6 +1,6 @@
 <?php
 
-function signup($mail, $username, $password, $host) {
+function signup($mail, $username, $firstname, $surname, $password, $host) {
     include_once '../setup/DB_connect.class.php';
     include_once 'E_Mail.class.php';
     $mail = strtolower($mail);
@@ -17,9 +17,9 @@ function signup($mail, $username, $password, $host) {
             $query->closeCursor();
             // encrypt password
             $password = hash("whirlpool", $password);
-            $query= $dbhost->prepare("INSERT INTO users (username, E_Mail, password, token) VALUES (:username, :mail, :password, :token)");
+            $query= $dbhost->prepare("INSERT INTO users (username, E_Mail, Firstname, Surname, password, token) VALUES (:username, :mail, :firstname, :surname, :password, :token)");
             $token = uniqid(rand(), true);
-            $query->execute(array(':username' => $username, ':mail' => $mail, ':password' => $password, ':token' => $token));
+            $query->execute(array(':username' => $username, ':mail' => $mail, ':firstname' => $firstname, ':surname' => $surname, ':password' => $password, ':token' => $token));
             send_verification_email($mail, $username, $token, $host);
             $_SESSION['signup_success'] = true;
             return (0);

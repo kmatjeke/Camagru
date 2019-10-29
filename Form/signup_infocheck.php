@@ -4,6 +4,8 @@ include_once '../functions/signup.class.php';
 // retreive values
 $mail = $_POST['email'];
 $username = $_POST['username'];
+$firstname = $_POST['firstname'];
+$surname = $_POST['surname'];
 $password = $_POST['password'];
 $re_password = $_POST['re-password'];
 $_SESSION['error'] = null;
@@ -30,6 +32,6 @@ if (!($password == $re_password))
   return;
 }
 $url = $_SERVER['HTTP_HOST'] . str_replace("/forms/signup.php", "", $_SERVER['REQUEST_URI']);
-signup($mail, $username, $password, $url);
+signup($mail, $username, $firstname, $surname, $password, $url);
 header("Location: ../Form/sign-up.form.php");
 ?>

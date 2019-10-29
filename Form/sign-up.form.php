@@ -9,16 +9,18 @@ session_start();
       <title>SIGNUP</title>
   </HEAD>
   <BODY>
-    <!-- <?php include('fragments/header.php') ?>
-    <?php include('fragments/footer.php') ?> -->
     <div class="center_div">
         <div class="title">SIGNUP</div>
-        <div id="blue">
+        <div class="blue">
             <form method="post" style="position: relative;" action="signup_infocheck.php">
-                <label>Email: </label>
-                <input id="mail" name="email" placeholder="email" type="mail" required>
                 <label>Username: </label>
                 <input id="name" name="username" placeholder="username" type="text" required>
+                <label>Email: </label>
+                <input id="mail" name="email" placeholder="email" type="mail" required>
+                <label>Firstname: </label>
+                <input id="mail" name="firstname" placeholder="Enter firstname" type="text" required>
+                <label>Surname: </label>
+                <input id="mail" name="surname" placeholder="enter surname" type="text" required>
                 <label>Password: </label>
                 <input id="password" name="password" placeholder="password" type="password" required>
                 <label>Re-enter Password: </label>

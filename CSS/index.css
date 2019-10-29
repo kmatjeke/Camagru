@@ -1,0 +1,43 @@
+BODY {
+    background-color: grey;
+}
+/* Customizing Sign-up Header */
+
+HEADER {
+    background-color: silver;
+    border-radius: 10px 10px;
+}
+
+.Title {
+    font-size: 100px;
+    text-align: center;
+    margin-top: 40px;
+}
+.Login{
+    text-align: center;
+    font-size: 23px;
+    margin-top: -80px;
+}
+.logout {
+    text-align: right;
+    margin-top: -80px;
+}
+#button-logout{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+#button-logout:hover {
+    background-color: slateblue;
+}
+#instalogo
+{
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    width: 90px;
+    height: 90px;
+}
+
+/* Customizing Sign-up Page */

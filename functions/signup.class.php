@@ -16,10 +16,10 @@ function signup($mail, $username, $firstname, $surname, $password, $host) {
             }
             $query->closeCursor();
             // encrypt password
-            $password = hash("whirlpool", $password);
-            $query= $dbhost->prepare("INSERT INTO users (username, E_Mail, Firstname, Surname, password, token) VALUES (:username, :mail, :firstname, :surname, :password, :token)");
+            $hash = password_hash($password, PASSWORD_BCRYPT);
+            $query= $dbhost->prepare("INSERT INTO users (username, E_Mail, Firstname, Surname, password, token) VALUES (:username, :mail, :firstname, :surname, :hash, :token)");
             $token = uniqid(rand(), true);
-            $query->execute(array(':username' => $username, ':mail' => $mail, ':firstname' => $firstname, ':surname' => $surname, ':password' => $password, ':token' => $token));
+            $query->execute(array(':username' => $username, ':mail' => $mail, ':firstname' => $firstname, ':surname' => $surname, ':hash' => $hash, ':token' => $token));
             send_verification_email($mail, $username, $token, $host);
             $_SESSION['signup_success'] = true;
             return (0);

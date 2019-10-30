@@ -6,12 +6,12 @@ BODY {
 {
     text-align: center;
     font-size: 80px;
-    margin-top: 30px;
+    margin-top: -20px;
     margin-bottom: 30px;
 }
 .center_div {
     background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.6);
     color: black;
     border: 8px solid black;
     border-radius: 15px 15px;
@@ -22,4 +22,116 @@ BODY {
     transform: translate(-50%,-50%);
     padding: 20px;
     position: absolute;
+    color: white;
+}
+.info
+{
+    margin: auto;
+    margin-top: -30px;
+    width: 400px;
+    height: 530px;
+    border: 4px solid black;
+    font-size: 25px;
+}
+
+.divusername
+{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#username
+{
+    float: right;
+    margin-right: 9px;
+    width: 200px;
+}
+.divemail
+{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#mail
+{
+    float: right;
+    margin-right: 9px;
+    width: 200px;
+}
+.divfname
+{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#fname
+{
+    float: right;
+    margin-right: 9px;
+    width: 200px;
+}
+.divsname
+{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#sname
+{
+    float: right;
+    margin-right: 9px;
+    width: 200px;
+}
+.divpass
+{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#password
+{
+    float: right;
+    margin-right: 9px;
+    width: 200px;
+}
+.divrepass
+{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#re-password
+{
+    float: right;
+    margin-right: 9px;
+    width: 200px;
+}
+.divsubmit
+{
+    margin-top: 8px;
+    text-align: center;
+}
+.submitbutton
+{
+    width: 240px;
+    height: 27px;
+    border-radius: 15px 15px;
+}
+.submitbutton:hover
+{
+    background-color: lemonchiffon;
+}
+#instalogo
+{
+    margin-left: 80px;
+    margin-top: 3px;
+    margin-bottom: px; 
+    width: 250px;
+    height: 250px;
+}
+
+.bg-image
+{
+    background-image: url('../imgs/signup.jpg');
+    width: 100%;
+    height: 1000px;
+    filter: blur(6px);
+    -webkit-filter: blur(6px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

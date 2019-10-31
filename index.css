@@ -48,14 +48,9 @@ BODY {
     /* text-align: right;
     margin-top: -80px; */
 }
-#button-logout{
-    /* width: 70px;
-    height: 70px;
-    margin-bottom: 20px;
-    margin-right: 10px; */
-}
+
 #button-logout:hover {
-    background-color: slateblue;
+    background-color: greenyellow;
 }
 #instalogo
 {
@@ -111,4 +106,37 @@ BODY {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.go_home
+{
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+.link
+{
+    color: greenyellow
+}
+.link:hover
+{
+    color: blue;
+}
+.profile
+{
+    color: white;
+    margin-top: 30px;
+    font-size: 30px;
+    text-align: center;
+}
+.logout
+{
+    text-align: center;
+}
+#button-logout
+{
+    width: 400px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 15px 15px;
 }

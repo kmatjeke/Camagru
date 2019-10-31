@@ -18,7 +18,7 @@ else if (isset($val['err']))
 }
 else
 {
-    $_SESSION['id'] = $val['id'];
+    $_SESSION['id'] = $val['user_id'];
     $_SESSION['username'] = $val['username'];
     header("Location: ../Form/home.php");
 }

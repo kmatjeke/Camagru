@@ -37,7 +37,7 @@ BODY {
     color: white;
     margin: auto;
     width: 400px;
-    height: 230px;
+    height: 270px;
     text-align: center;
     font-size: 23px;
     margin-top: 30px;
@@ -139,4 +139,20 @@ BODY {
     height: 30px;
     font-size: 20px;
     border-radius: 15px 15px;
+}
+.no_account
+{
+    margin-top: 10px;
+}
+.guest
+{
+    margin-top: 7px;
+}
+.guestlink
+{
+    color: greenyellow;
+}
+.guestlink:hover
+{
+    color: silver;
 }

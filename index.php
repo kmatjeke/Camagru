@@ -47,6 +47,9 @@ session_start();
                         <label>Don't have an account </label>
                         <a href="Form/sign-up.form.php" id="signup-text">Sign-up</a>
                     </div>
+                    <div class="guest">
+                        <a href="Form/home.php" class="guestlink">Continue As Guest</a>
+                    </div>
                     <span>
                         <?php
                             if ($_SESSION['error']) {

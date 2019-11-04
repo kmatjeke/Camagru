@@ -26,11 +26,7 @@ BODY {
     color: lightblue;
 }
 
-.Title {
-    /* font-size: 100px;
-    text-align: center;
-    margin-top: 40px; */
-}
+
 .Login{
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.6);
@@ -43,10 +39,6 @@ BODY {
     margin-top: 30px;
     border: 8px solid black;
     border-radius: 15px 15px;
-}
-.logout {
-    /* text-align: right;
-    margin-top: -80px; */
 }
 
 #button-logout:hover {

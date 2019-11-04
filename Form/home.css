@@ -67,7 +67,42 @@ ul.ulhead > li > a:hover
 {
     background-color: silver;
 }
-.home
+.webcam-capture
 {
-    color: blue;
+    margin: auto;
+    width: 1300px;
+    height: 800px;
+    background-color: white;
+    text-align: center;
+}
+video {
+    width: 800px;
+    height: 600px;
+    background: grey;
+    margin: auto;
+}
+.takebutton
+{
+    margin: auto;
+    width: 160px;
+    margin-top: -190px;
+}
+.booth-capture-button
+{
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    width: 150px;
+}
+.captured-picture
+{
+    width: 210px;
+    height: 200px;
+    background-color: black;
+    margin-top: -585px;
+    margin-left: 20px;
 }

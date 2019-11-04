@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function send_verification_email($toAddr, $toUsername, $token, $ip) {
   $subject = "[CAMAGRU] - Email verification";
   $headers  = 'MIME-Version: 1.0' . "\r\n";
@@ -12,8 +12,8 @@ function send_verification_email($toAddr, $toUsername, $token, $ip) {
     </head>
     <body>
       Hello ' . htmlspecialchars($toUsername) . ' </br>
-      To finalyze your subscribtion please click the link below </br>
-      <a href="http://' . $ip . '/verify.class.php?token=' . $token . '">Verify my email</a>
+      To finalyze your subscribtion please click the link below And Login</br>
+      <a href="http://localhost:8080/camagru/functions/verify.class.php?token=' . $token . '">Verify E-mail Address</a>
     </body>
   </html>
   ';

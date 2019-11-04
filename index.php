@@ -61,23 +61,11 @@ session_start();
                 </form>
                 <?php }?>
                 <?php
-                    $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URL]";
-                    if (strpos($fullUrl, "user_password=incorrect") == true)
-                    {
-                        echo "<p class='error'>Password or Username Incorrect!</p>";
-                    }
-                    else if (strpos($fullUrl, "login=failed") == true)
-                    {
-                        echo "<p class='error'>Session Error!</p>";
-                    }
+                    if (isset($_SESSION['verified'])){ ?>
+                        <h2>Email verified please login</h2>
+                    <?php }
                 ?>
                 <br />
-                
-                <!-- <div class="logout">
-                    <form action="functions/logout.class.php" method="post">
-                        <button type="submit" name="logout-button" id="button-logout">LOGOUT</button>
-                    </form>
-                </div> -->
             </div>
         </div>
     </BODY>

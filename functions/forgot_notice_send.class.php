@@ -2,7 +2,7 @@
 
 function reset_password($Mail)
 {
-    include_once '../config/database.php';
+    include '../config/database.php';
     include_once '../functions/E_Mail.class.php';
 
     try
@@ -18,6 +18,7 @@ function reset_password($Mail)
             return (-1);
         }
         $query->closeCursor();
+
         send_forget_mail($Mail, $val['username']);
         return (0);
     }

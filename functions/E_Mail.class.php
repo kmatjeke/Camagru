@@ -31,9 +31,9 @@ function send_forget_mail($toAddr, $toUsername) {
       <title>' . $subject . '</title>
     </head>
     <body>
-      Hello ' . htmlspecialchars($toUsername) . ' </br>
+      Hello ' . htmlspecialchars($toUsername) . ' <br />
       To reset your password please click the link below</br>
-      <a href="http://localhost:8080/camagru/Form/forgot_password.form.php">Reset your password</a>
+      <a href="http://localhost:8080/camagru/Form/forgot_password.form.php?mail=' . $toAddr . '&username=' . $toUsername . '">Reset your password</a>
     </body>
   </html>
   ';

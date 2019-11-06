@@ -13,12 +13,9 @@ session_start();
     <div class="center_div">
         <div class="title">Change Password</div>
         <div class="info">
+          <div class="Hello">Hello <?php echo $_GET['username']; ?></div> 
           <img src="../imgs/Instagram-Icon.png" alt="Insta Logo" id="instalogo">
           <form method="post" style="position: relative;" action="forgot_password_infocheck.php">
-            <div class="divemail">
-              <label>Enter Email: </label>
-              <input id="mail" name="email" placeholder="email" type="mail" required>
-            </div>
             <div class="divpass">
               <label>Enter new Password: </label>
               <input id="password" name="password" placeholder="password" type="password" required>

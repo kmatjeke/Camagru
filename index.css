@@ -132,6 +132,14 @@ BODY {
     font-size: 20px;
     border-radius: 15px 15px;
 }
+.forgot_div
+{
+    margin-top: 10px;
+}
+.forgot_link
+{
+    color: greenyellow;
+}
 .no_account
 {
     margin-top: 10px;

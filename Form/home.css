@@ -106,3 +106,9 @@ video {
     margin-top: -585px;
     margin-left: 20px;
 }
+.picture_canvas
+{
+    width: 210px;
+    height: 200px;
+    background-color: black;
+}

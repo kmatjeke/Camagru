@@ -1,7 +1,7 @@
 <?php
 
 function signup($mail, $username, $firstname, $surname, $password, $host) {
-    include_once '../setup/DB_connect.class.php';
+    include_once '../config/database.php';
     include_once 'E_Mail.class.php';
     $mail = strtolower($mail);
     try {

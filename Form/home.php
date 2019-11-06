@@ -44,6 +44,7 @@ session_start();
                     }
                 </script>
                 <div class="captured-picture">
+                    <canvas class="picture_canvas"></canvas>
                 </div>
             </div>
             <div class="takebutton">

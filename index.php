@@ -43,6 +43,9 @@ session_start();
                     <div class="divbutton">
                         <button type="submit" name="submit-button" id="loginbutton">LOGIN</button>
                     </div>
+                    <div class="forgot_div">
+                        <a href="Form/forgot_notice.form.php" class="forgot_link">Forgot Password</a>
+                    </div>
                     <div class="no_account">
                         <label>Don't have an account </label>
                         <a href="Form/sign-up.form.php" id="signup-text">Sign-up</a>

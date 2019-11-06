@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once '../setup/DB_connect.class.php';
+include_once '../config/database.php';
 try {
     $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

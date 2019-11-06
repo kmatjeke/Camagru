@@ -7,7 +7,7 @@
             <img src="../imgs/insta.jpg" alt="logo" id="instalogo">
         </a>
         <ul class="ulhead">
-            <li><a href="#">GALLERY</a></li>
+            <li><a href="../Form/gallery.php">GALLERY</a></li>
             <li><a href="../index.php" class="home">HOME</a></li>
         </ul>
     </div>

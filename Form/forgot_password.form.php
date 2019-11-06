@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <HTML>
   <HEAD>
-      <link rel="stylesheet" type="text/css" href="forgot_password.css">
+      <link rel="stylesheet" type="text/css" href="../style/forgot_password.css">
       <meta charset="UTF-8">
       <title>Change Password</title>
   </HEAD>

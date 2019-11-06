@@ -1,0 +1,44 @@
+
+.booth
+{
+    margin: auto;
+    width: 1300px;
+    height: 800px;
+    background-color: gray;
+    text-align: center;
+}
+video {
+    width: 800px;
+    height: 600px;
+    background: grey;
+    margin: auto;
+}
+.takepicturediv
+{
+    margin: auto;
+    text-align: center;
+    width: 400px;
+}
+.booth-capture-button
+{
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+.divcanvas
+{
+    width: 210px;
+    height: 200px;
+    background-color: black;
+    margin-top: -630px;
+    margin-left: 20px;
+}
+.canvas_class
+{
+    width: 210px;
+    height: 200px;
+    background-color: silver;
+}

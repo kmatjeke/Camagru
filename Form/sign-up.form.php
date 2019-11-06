@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <HTML>
   <HEAD>
-      <link rel="stylesheet" type="text/css" href="signup.css">
+      <link rel="stylesheet" type="text/css" href="../style/signup.css">
       <meta charset="UTF-8">
       <title>SIGNUP</title>
   </HEAD>

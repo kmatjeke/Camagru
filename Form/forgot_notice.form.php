@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <HTML>
   <HEAD>
-      <link rel="stylesheet" type="text/css" href="forgot_notice.css">
+      <link rel="stylesheet" type="text/css" href="../style/forgot_notice.css">
       <meta charset="UTF-8">
       <title>Forgot Password</title>
   </HEAD>

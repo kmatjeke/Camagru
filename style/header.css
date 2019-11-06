@@ -1,14 +1,10 @@
-body
-{
-    background-color: silver;
-}
-
 header
 {
     width: 100%;
     background-color: black;
     border-radius: 15px 15px;
 }
+
 #instalogo
 {
     float: left;
@@ -66,49 +62,4 @@ ul.ulhead > li > a:hover
 .logout_button:hover
 {
     background-color: silver;
-}
-.webcam-capture
-{
-    margin: auto;
-    width: 1300px;
-    height: 800px;
-    background-color: white;
-    text-align: center;
-}
-video {
-    width: 800px;
-    height: 600px;
-    background: grey;
-    margin: auto;
-}
-.takebutton
-{
-    margin: auto;
-    width: 160px;
-    margin-top: -190px;
-}
-.booth-capture-button
-{
-    display: block;
-    margin: 10px 0;
-    padding: 10px 20px;
-    background-color: black;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    width: 150px;
-}
-.captured-picture
-{
-    width: 210px;
-    height: 200px;
-    background-color: black;
-    margin-top: -585px;
-    margin-left: 20px;
-}
-.picture_canvas
-{
-    width: 210px;
-    height: 200px;
-    background-color: black;
 }

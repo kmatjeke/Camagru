@@ -18,8 +18,14 @@ function reset_password($Mail)
             return (-1);
         }
         $query->closeCursor();
+        $pass = uniqid('');
+        $passEncrypt = hash("Whirlpool", $pass);
 
-        send_forget_mail($Mail, $val['username']);
+        $query= $dbh->prepare("UPDATE users SET password=:password WHERE E_Mail=:mail");
+        $query->execute(array(':password' => $passEncrypt, ':mail' => $Mail));
+        $query->closeCursor();
+
+        send_forget_mail($Mail, $val['username'], $pass);
         return (0);
     }
     catch (PDOException $e)

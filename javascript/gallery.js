@@ -1,11 +1,10 @@
 (function() {
     var video = document.getElementById('video'),
-    vendorUrl = window.URL || window.webkitURL,
+    vendorUrl = window.URL || window.webkitURL
     canvas= document.getElementById('canvas'),
     context = canvas.getContext('2d'),
-    photo= document.getElementById('photo'),
-    submitupload = document.getElementById('#savebutton'),
-    context = canvas.getContext('2d');
+    photo= document.getElementById('photo');
+    // submitupload = document.getElementById('#savebutton'),
 
     navigator.getMedia =    navigator.getUserMedia ||
                             navigator.webkitGetUserMedia ||
@@ -30,6 +29,18 @@
     );
     }
 
+    //Taking photo and displaying on canvas
+
+    canvas.style.display="none";
+    document.getElementById('capture').addEventListener('click', function() {
+        context.drawImage(video, 0, 0, 300, 210);
+        var but= document.getElementById('download');
+        var sav= document.getElementById('save');
+        but.style.display="block";
+        sav.style.display="block";
+        photo.setAttribute('src', canvas.toDataURL('image/png'));
+    });
+
     function getImage(canvas) {
         var imageData = canvas.toDataURL();
         var image = new Image();
@@ -37,6 +48,7 @@
         return image;
     }
 
+// //saving image to computer
     function saveImage(image) {
         var link = document.createElement("a");
 
@@ -45,40 +57,32 @@
         link.click();
     }
 
-    var down = document.getElementById("button_download");
+    var down = document.getElementById("download");
     down.onclick = function saveCanvasAsImageFile(){
         var image = getImage(document.getElementById("canvas"));
         saveImage(image);
     }
 
-    document.getElementById('takephoto').addEventListener('click', function() {
-        context.drawImage(video, 0, 0, 400, 300);
-        photo.setAttribute('src', canvas.toDataURL('imgs/png'));
 
-    });
-
-
-    var handler = document.getElementById('handler');
-    var button_upload = document.getElementById('button_upload');
-    var newImg = document.getElementById("upImg");
-
-    button_upload.addEventListener('click', uploadImg);
-
-    function uploadImg(e) {
-        e.preventDefault();
-        var img = new FileReader();
-        img.onload = function (a) {
-            newImg.src = a.target.result;
-            captureImg(newImg.src);
+//saving photo to gallery 
+    var sav = document.getElementById("save");
+    sav.addEventListener('click', save_img);
+    function save_img () {
+        var log_user = document.getElementById('user');
+        var img_src = getImage(document.getElementById("canvas"));
+        var data = "log_user=" + log_user.innerHTML + "&img_src=" + img_src;
+        
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "../functions/save_to_gallery.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("pic="+encodeURIComponent(data));
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                window.location.reload();
+                console.log(this.responseText);
+            }
         };
+        
     }
 
-    var captureImg = function (src)
-    {
-        var context = canvas.getContext('2d');
-        var newImg = new Image();
-        newImg.src = src;
-        context.drawImage(newImg, 0, 0, 400, 300);
-        photo.setAttribute('src', canvas.toDataURL('imgs/png'));
-    }
 })();

@@ -20,7 +20,7 @@ function send_verification_email($toAddr, $toUsername, $token, $ip) {
   mail($toAddr, $subject, $message, $headers);
 }
 
-function send_forget_mail($toAddr, $toUsername) {
+function send_forget_mail($toAddr, $toUsername, $password) {
   $subject = "[CAMAGRU] - Reset Your Password";
   $headers  = 'MIME-Version: 1.0' . "\r\n";
   $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
@@ -32,8 +32,7 @@ function send_forget_mail($toAddr, $toUsername) {
     </head>
     <body>
       Hello ' . htmlspecialchars($toUsername) . ' <br />
-      To reset your password please click the link below</br>
-      <a href="http://localhost:8080/camagru/Form/forgot_password.form.php?mail=' . $toAddr . '&username=' . $toUsername . '">Reset your password</a>
+      There is your new password: ' .$password . '</br>
     </body>
   </html>
   ';

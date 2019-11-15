@@ -31,6 +31,7 @@ session_start();
           <div class="notice">
               An email has been sent to your email address please go view it
           </div>
+          <a href="../index.php">Click here to go to main page</a>
           <?php
           $_SESSION['forgot_success'] = null;
         }

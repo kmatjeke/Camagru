@@ -19,8 +19,7 @@ try {
 	$sql .= "CREATE TABLE IF NOT EXISTS `images` (
 			`id_images` int(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 			`id_gallery` int(11) NOT NULL,
-			`path_images` varchar(255) NOT NULL,
-			`text_images` text NOT NULL
+			`path_images` LONGBLOB NOT NULL,
 			) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 	// Структура таблицы `commenst`
 	$sql .= "CREATE TABLE IF NOT EXISTS `commenst` (

@@ -16,31 +16,17 @@ include_once("gallery.class.php");
         <HEADER>
             <?php include('../includes/header.php') ?>
         </HEADER>
-        <div class="center">
             <div class="booth">
-                <video autoplay="true" id="video"></video>
-                <div class="takepicturediv">
-                    <img id="upImg" name="img" src="">
-                    <a href="#" id="savebutton" class="booth-capture-button">
-                        <form action="" id="formtake">
-                            <input type="hidden" id="photo" name="photo">
-                            <input type="submit" id="takephoto" value="take" name="submitphoto">
-                        </form>
-                        <form action="" id="formupload">
-                            <input id="handler" accept="imgs/*" type="file" name="">
-                            <button id="button_upload">OK</button>
-                        </form>
-                    </a>
-                </div>
-                <div class="divcanvas">
-                    <canvas id="canvas" class="canvas_class" width="400" height="300"></canvas>
-                    
-                    <a href="">
-                        <button id="button_download" class="img-download" type="button">Download</button>
-                        <button id="button_save_to_gallery" class="img-gallery">Save to Gallery</button>
-                </div>
+                <video id="video"></video>
+                <a href="#" id="capture" class="booth-capture-button">Take Photo</a>
+                <a href="#" id="download" class="download-capture-button">Download</a>
+                <a href="#" id="save" class="save-capture-button">Save_to_gallery</a>
+                <div class="hidden" id="user"><?php echo $_SESSION['username']; ?></div>
+                <canvas id="canvas"></canvas>
+                <img id="photo" width="400" height="300" src="" alt="">
+                <img id="new-img" src="">
             </div>
-        </div>
+                
     </BODY>
     <?php if (isset($_SESSION['id'])) { ?>
     <script type="text/javascript" src="../javascript/gallery.js"></script>

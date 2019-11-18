@@ -10,7 +10,7 @@ include_once("gallery.class.php");
         <link rel="stylesheet" type="text/css" href="../style/gallery.css">
         <link rel="stylesheet" type="text/css" href="../style/header.css">
         <meta charset="UTF-8">
-        <title>Gallery</title>
+        <title>Camera</title>
     </HEAD>
     <BODY>
         <!-- <HEADER>
@@ -25,21 +25,18 @@ include_once("gallery.class.php");
           <button id="img1" style=background-color:#f2f2f2><img src="../imgs/image1.png" width=100/></button>
           <button id="img2" style=background-color:#f2f2f2><img src="../imgs/image2.png" width=100/></button>
           <button id="img3" style=background-color:#f2f2f2><img src="../imgs/image3.png" width=100/></button>
-          <p>
-            OU<br />
-            Size limt if picture <br /><span id="alinea">(jpeg, png | max 1.5 Mo)</span>
-          </p>
-            <label class="file" title="">
-              <input type="file" accept="image/*" name="uploadpic" id="uploadpic" onchange="this.parentNode.setAttribute('title', this.value.replace(/^.*[\\/]/, ''))" />
-            </label>
-            <input id="uploadsubmitbutton" type="submit" value="Upload Image" name="submit">
+        <label class="file" title="">
+            <input type="file" accept="image/*" name="uploadpic" id="uploadpic" onchange="this.parentNode.setAttribute('title', this.value.replace(/^.*[\\/]/, ''))" />
+        </label>
+        <input id="uploadsubmitbutton" type="submit" value="Upload Image" name="submit">
         </div>
         <div class="apercu">
           <canvas id="canvas"></canvas><br />
           <button id="savebutton">Save Picture</button>
         </div>
-      </main><br />
-                
+    </main><br />
+    <div class="side">
+    </div>
     </BODY>
     <?php if (isset($_SESSION['id'])) { ?>
     <script type="text/javascript" src="../javascript/gallery.js"></script>

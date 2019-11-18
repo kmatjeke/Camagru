@@ -3,17 +3,24 @@
 ?>
 <?php if (isset($_SESSION['id'])) { ?>
     <div class="logheader">
-        <a href="#">
+        <a href="#" class="logo">
             <img src="../imgs/insta.jpg" alt="logo" id="instalogo">
         </a>
-        <ul class="ulhead">
-            <li><a href="../Form/gallery.php">GALLERY</a></li>
-            <li><a href="../index.php" class="home">HOME</a></li>
-        </ul>
+        <div class="header-right">
+            <a href="../Form/home.php" class="home">HOME</a>
+            <a href="../Form/gallery.php">CAMERA</a>
+            <a href="../functions/logout.class.php">LOG OUT</a>
+        </div>
     </div>
-    <div class="logout">
-        <form action="../functions/logout.class.php" method="post">
-            <button type="submit" name="logout" class="logout_button">Sign Out</button>
-        </form>
+<?php } 
+else { ?>
+    <div class="logheader">
+        <a href="#" class="logo">
+            <img src="../imgs/insta.jpg" alt="logo" id="instalogo">
+        </a>
+        <div class="header-right">
+            <a href="../Form/home.php" class="home">HOME</a>
+            <a href="../index.php">LOG IN</a>
+        </div>
     </div>
 <?php } ?>

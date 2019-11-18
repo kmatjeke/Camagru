@@ -125,7 +125,7 @@
       pic.setAttribute("src", data);
       pic.setAttribute("class", "minipic");
       var x = document.createElement("IMG");
-      x.setAttribute("src", "../public/img/delete.png");
+      x.setAttribute("src", "../imgs/delete.png");
       x.setAttribute("class", "deletepic");
       x.setAttribute("id", "delete_"+id);
       x.setAttribute("onclick", "deletePicture("+id+")");
@@ -145,7 +145,7 @@
         if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
           var response = JSON.parse(xhr.responseText);
           var id_pic = response['id_pic'];
-          addMinipic(id_pic, data);
+        //   addMinipic(id_pic, data);
         }
       }
     }

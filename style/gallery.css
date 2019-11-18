@@ -1,54 +1,181 @@
+@media screen and (max-width: 990px){
+    .allwebcam { flex-wrap: wrap; flex-direction: column;}
+  }
+  
+  @media screen and (max-width: 660px){
+    .allwebcam { flex-wrap: wrap; flex-direction: column; align-items: center;}
+    .webcamapercu { flex-wrap: wrap; flex-direction: column;}
+  }
+  BODY
+  {
+        background-color: gray;
+  }
 
-
-.booth {
-    width: 400px;
-    background-color: #ccc;
-    border: 10px solid #ddd;
-    margin: 0 auto;
-}
-#video {
-    width: 400px;
-    height: 300px;
-}
-
-.booth-capture-button{
+  .allwebcam {
+    display: flex;
+    margin-left: 300px;
+    min-height: 92vh;
+  }
+  
+  aside {
+    margin: 0.5rem;
+  }
+  
+  .webcamapercu {
+    display: flex;
+    margin: 1rem;
+  }
+  
+  .webcam, .apercu {
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    width: 32rem;
+  }
+  
+  #video {
+    border: 2px solid #7F8C8D;
+    margin-bottom: 0.5rem;
+    height: 24rem;
+  }
+  
+  #canvas {
+    background-color: silver;
+    border: 2px solid black;
+    height: 24rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .displaypic {
+    float: left;
+    position: relative;
+  }
+  
+  .minipic {
+    height: 10rem;
+    margin: 0.5rem;
+  }
+  
+  .deletepic {
+    position: absolute;
+    cursor: pointer;
+    top: 5;
+    right: 5;
+  }
+  
+  #startbutton, #uploadsubmitbutton {
+    cursor: pointer;
+    border: solid 1px transparent;
+    background-color: black;
+    color: #fff;
+    font-family: Gill Sans, sans-serif;
+    font-size: 1.5rem;
+    width: 32rem;
+    outline: none;
+    margin-bottom: 0.5rem;
+  }
+  #savebutton
+  {
+    cursor: pointer;
+    border: solid 1px transparent;
+    background-color: black;
+    color: #fff;
+    font-family: Gill Sans, sans-serif;
+    font-size: 1.5rem;
+    width: 32rem;
+    outline: none;
+    margin-bottom: 0.5rem;
+  }
+  
+  #savebutton:hover, #startbutton:hover, #uploadsubmitbutton:hover {
+    background-color: gray;
+  }
+  
+  #img1, #img2, #img3 {
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 3px #787878;
+  }
+  
+  #uploadsubmitbutton {
+    margin-top: 0.5rem;
+  }
+  
+  #error {
+    margin-top: 0.5rem;
+    color: red;
+    text-align: center;
+  }
+  
+  .webcam p {
+    color: silver;
+    text-align: center;
+    font-size: 2rem;
+    margin: 1rem 0 1rem 0;
+  }
+  
+  #alinea {
+    font-size: 1.5rem;
+  }
+  
+  label.file input {
+    position: absolute;
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+  
+  label.file {
+    width: 0%; /* Use for fluid design */
+    min-width: 30rem;
+    height: 3rem;
+    line-height: 2.8rem!important;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    text-align: right;
+  }
+  
+  label.file:before {
+    content: "Choose File";
     display: block;
-    margin: 10px 0;
-    padding: 10px 20px;
-    color: #fff;
-    background-color: cornflowerblue;
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: inherit;
+    padding: 0 8.4rem 0 1rem;
+    border: 0 solid #e8eeef;
+    border-width: 2px 0px 2px 2px;
+    border-radius: 3px 0 0 3px;
+    background-color: #fff;
+    color: #a0b7c5;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-align: center;
-    text-decoration: none;
-}
-.download-capture-button{
-    display: none;
-    margin: 10px 0;
-    padding: 10px 20px;
+  }
+  
+  label.file[title]:not([title=""]):before{
+    content: attr(title);
+    color: #162f44;
+  }
+  
+  label.file:after {
+    content: "Upload file";
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    width: 7.4rem;
+    height: inherit;
+    padding: 0 0.4rem;
+    background-color: black;
     color: #fff;
-    background-color: cornflowerblue;
+    overflow: hidden;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-overflow: ellipsis;
     text-align: center;
-    text-decoration: none;
-}
-
-.save-capture-button{
-    display: none;
-    margin: 10px 0;
-    padding: 10px 20px;
-    color: #fff;
-    background-color: cornflowerblue;
-    text-align: center;
-    text-decoration: none;
-}
-#canvas{
-    width: 400px;
-    height: 300px;
-}
-.button-submit{
-    width: 400px;
-    height: 30px;
-}
-
-.hidden
-{
-    display: none;
-}
+    vertical-align: middle;
+  }

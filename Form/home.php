@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../config/database.php';
 ?>
 <!DOCTYPE HTML>
 <HTML>
@@ -16,41 +17,7 @@ session_start();
             <?php include('../includes/header.php') ?>
         </HEADER>
         <?php if (isset($_SESSION['id'])) { ?>
-            <div class="webcam-capture">
-                <video></video>
-                <script>
-                    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-                    if (navigator.getUserMedia)
-                    {
-                        navigator.getUserMedia({ audio: false, video: true},
-                        function(stream)
-                        {
-                            var video = document.querySelector('video');
-                            video.srcObject = stream;
-                            video.onloadedmetadata = function(e)
-                            {
-                            video.play();
-                            };
-                        },
-                        function(err)
-                        {
-                            console.log("The following error occurred: " + err.name);
-                        }
-                        document.getElementById
-                    );
-                    }
-                    else
-                    {
-                        console.log("getUserMedia not supported");
-                    }
-                </script>
-                <div class="captured-picture">
-                    <canvas class="picture_canvas"></canvas>
-                </div>
-            </div>
-            <div class="takebutton">
-                <a href="#" id=capture class="booth-capture-button">Take Photo</a>
-            </div>
-            <?php } ?>
+            
+        <?php } ?>
     </BODY>
 </HTML>

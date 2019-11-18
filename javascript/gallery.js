@@ -1,88 +1,155 @@
 (function() {
-    var video = document.getElementById('video'),
-    vendorUrl = window.URL || window.webkitURL
-    canvas= document.getElementById('canvas'),
-    context = canvas.getContext('2d'),
-    photo= document.getElementById('photo');
-    // submitupload = document.getElementById('#savebutton'),
 
-    navigator.getMedia =    navigator.getUserMedia ||
-                            navigator.webkitGetUserMedia ||
-                            navigator.mozGetUserMedia ||
-                            navigator.msGetUserMedia;
-    if (navigator.getUserMedia)
-    {
-        navigator.getUserMedia({ audio: false, video: true},
-        function(stream)
+    var streaming = false,
+        video = document.querySelector('#video'),
+        cover = document.querySelector('#cover'),
+        canvas = document.querySelector('#canvas'),
+        photo = document.querySelector('#photo'),
+        startbutton = document.querySelector('#startbutton'),
+        savebutton = document.querySelector('#savebutton'),
+        img1 = document.querySelector('#img1'),
+        img2 = document.querySelector('#img2'),
+        img3 = document.querySelector('#img3'),
+        upload = document.querySelector('#uploadpic'),
+        submitupload = document.querySelector('#uploadsubmitbutton'),
+        data = 0,
+        uploadData = 0,
+        width = 320,
+        height = 240,
+        imgselected = 0;
+  
+        navigator.getMedia =    navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia;
+        if (navigator.getUserMedia)
         {
-            video = document.querySelector('video');
-            video.srcObject = stream;
-            video.onloadedmetadata = function(e)
+            navigator.getUserMedia({ audio: false, video: true},
+            function(stream)
             {
-            video.play();
-            };
-        },
-        function(err)
-        {
-            console.log("The following error occurred: " + err.name);
-        }
-    );
-    }
-
-    //Taking photo and displaying on canvas
-
-    canvas.style.display="none";
-    document.getElementById('capture').addEventListener('click', function() {
-        context.drawImage(video, 0, 0, 300, 210);
-        var but= document.getElementById('download');
-        var sav= document.getElementById('save');
-        but.style.display="block";
-        sav.style.display="block";
-        photo.setAttribute('src', canvas.toDataURL('image/png'));
-    });
-
-    function getImage(canvas) {
-        var imageData = canvas.toDataURL();
-        var image = new Image();
-        image.src = imageData;
-        return image;
-    }
-
-// //saving image to computer
-    function saveImage(image) {
-        var link = document.createElement("a");
-
-        link.setAttribute("href", image.src);
-        link.setAttribute("download", "canvasImage");
-        link.click();
-    }
-
-    var down = document.getElementById("download");
-    down.onclick = function saveCanvasAsImageFile(){
-        var image = getImage(document.getElementById("canvas"));
-        saveImage(image);
-    }
-
-
-//saving photo to gallery 
-    var sav = document.getElementById("save");
-    sav.addEventListener('click', save_img);
-    function save_img () {
-        var log_user = document.getElementById('user');
-        var img_src = getImage(document.getElementById("canvas"));
-        var data = "log_user=" + log_user.innerHTML + "&img_src=" + img_src;
-        
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "../functions/save_to_gallery.php", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("pic="+encodeURIComponent(data));
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                window.location.reload();
-                console.log(this.responseText);
+                video = document.querySelector('video');
+                video.srcObject = stream;
+                video.onloadedmetadata = function(e)
+                {
+                    video.play();
+                };
+            },
+            function(err)
+            {
+                console.log("The following error occurred: " + err.name);
             }
-        };
-        
-    }
+            );
+        }
 
-})();
+  
+    function mergePicAndDisplay(pic) {
+      var picData = pic.replace("data:image/png;base64,", "");
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "../functions/mergepic.php", true);
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.send("pic="+encodeURIComponent(picData)+"&img="+imgselected);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          response = "data:image/png;base64,"+response;
+          data = response;
+          image = new Image();
+          image.src = response;
+          image.onload = function() {
+            canvas.getContext('2d').drawImage(image, 0, 0, width, height);
+            canvas.toDataURL('image/png');
+          }
+        }
+      }
+    }
+  
+    function takePicture(vid) { // if vid == 1, take picture from webcam // if vid == 0, take picture from upload
+        var newcanvas = document.createElement('canvas');
+        newcanvas.width = width;
+        newcanvas.height = height;
+        canvas.width = width;
+        canvas.height = height;
+        if (vid == 1) {
+          newcanvas.getContext('2d').drawImage(video, 0, 0, width, height);
+          var pic = newcanvas.toDataURL('image/png');
+          mergePicAndDisplay(pic);
+        }
+        else {
+          var image = new Image();
+          image.src = uploadData;
+          image.onload = function() {
+            newcanvas.getContext('2d').drawImage(image, 0, 0, width, height);
+            var pic = newcanvas.toDataURL('image/png');
+            mergePicAndDisplay(pic);
+          }
+        }
+      }
+  
+    startbutton.addEventListener('click', function(ev){
+      
+        takePicture(1);
+      ev.preventDefault();
+    }, false);
+  
+    
+  
+    savebutton.addEventListener('click', function(ev){
+      if (data != 0)
+        savePicture(data);
+      ev.preventDefault();
+    }, false);
+  
+    upload.addEventListener('change', function(e) {
+        var file = this.files[0];
+        var imageType = /image.*/;
+            if (file.type.match(imageType) && file.size < 1500000) {
+                   var reader = new FileReader();
+        reader.addEventListener('load', function() {
+          uploadData = reader.result;
+        }, false);
+        reader.readAsDataURL(file);
+      }
+    }, false);
+  
+    submitupload.addEventListener('click', function(ev) {
+      if (uploadData == 0)
+        displayError("NoUpload");
+      else
+        takePicture(0);
+    }, false);
+  
+    function addMinipic(id, data) {
+      var div = document.createElement("DIV");
+      div.setAttribute("class", "displaypic");
+      var pic = document.createElement("IMG");
+      pic.setAttribute("src", data);
+      pic.setAttribute("class", "minipic");
+      var x = document.createElement("IMG");
+      x.setAttribute("src", "../public/img/delete.png");
+      x.setAttribute("class", "deletepic");
+      x.setAttribute("id", "delete_"+id);
+      x.setAttribute("onclick", "deletePicture("+id+")");
+      var minipic = document.getElementById('side');
+      minipic.insertBefore(div, minipic.childNodes[0]);
+      div.insertBefore(x, div.childNodes[0]);
+      div.insertBefore(pic, div.childNodes[0]);
+    }
+  
+    function savePicture(data) {
+      var picData = data.replace("data:image/png;base64,", "");
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "../functions/savepic.php", true);
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.send("pic="+encodeURIComponent(picData));
+      xhr.onreadystatechange = function () {
+        if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          var id_pic = response['id_pic'];
+          addMinipic(id_pic, data);
+        }
+      }
+    }
+  
+  })();
+  
+

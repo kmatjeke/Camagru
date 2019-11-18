@@ -13,19 +13,32 @@ include_once("gallery.class.php");
         <title>Gallery</title>
     </HEAD>
     <BODY>
-        <HEADER>
+        <!-- <HEADER>
             <?php include('../includes/header.php') ?>
-        </HEADER>
-            <div class="booth">
-                <video id="video"></video>
-                <a href="#" id="capture" class="booth-capture-button">Take Photo</a>
-                <a href="#" id="download" class="download-capture-button">Download</a>
-                <a href="#" id="save" class="save-capture-button">Save_to_gallery</a>
-                <div class="hidden" id="user"><?php echo $_SESSION['username']; ?></div>
-                <canvas id="canvas"></canvas>
-                <img id="photo" width="400" height="300" src="" alt="">
-                <img id="new-img" src="">
-            </div>
+        </HEADER> -->
+        <?php include '../includes/header.php'; ?>
+    <div class="allwebcam">
+      <main class="webcamapercu">
+        <div class="webcam" id="column1">
+          <video id="video"></video><br />
+          <button id="startbutton">Take Photo</button>
+          <button id="img1" style=background-color:#f2f2f2><img src="../imgs/image1.png" width=100/></button>
+          <button id="img2" style=background-color:#f2f2f2><img src="../imgs/image2.png" width=100/></button>
+          <button id="img3" style=background-color:#f2f2f2><img src="../imgs/image3.png" width=100/></button>
+          <p>
+            OU<br />
+            Size limt if picture <br /><span id="alinea">(jpeg, png | max 1.5 Mo)</span>
+          </p>
+            <label class="file" title="">
+              <input type="file" accept="image/*" name="uploadpic" id="uploadpic" onchange="this.parentNode.setAttribute('title', this.value.replace(/^.*[\\/]/, ''))" />
+            </label>
+            <input id="uploadsubmitbutton" type="submit" value="Fusionner les images" name="submit">
+        </div>
+        <div class="apercu">
+          <canvas id="canvas"></canvas><br />
+          <button id="savebutton">Save Picture</button>
+        </div>
+      </main><br />
                 
     </BODY>
     <?php if (isset($_SESSION['id'])) { ?>

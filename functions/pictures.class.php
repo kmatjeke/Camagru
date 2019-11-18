@@ -40,7 +40,7 @@ class Pictures {
         return $id_pic;
       }
       catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
+        die('Error : ' . $e->getMessage());
       }
     }
     public function getPicturesByPage($page, $nbpicbypage) {

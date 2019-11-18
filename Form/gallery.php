@@ -32,7 +32,7 @@ include_once("gallery.class.php");
             <label class="file" title="">
               <input type="file" accept="image/*" name="uploadpic" id="uploadpic" onchange="this.parentNode.setAttribute('title', this.value.replace(/^.*[\\/]/, ''))" />
             </label>
-            <input id="uploadsubmitbutton" type="submit" value="Fusionner les images" name="submit">
+            <input id="uploadsubmitbutton" type="submit" value="Upload Image" name="submit">
         </div>
         <div class="apercu">
           <canvas id="canvas"></canvas><br />

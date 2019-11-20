@@ -43,3 +43,18 @@ body
     font-size: 18px;
     float: left;
 }
+.likes
+{
+    float: right;
+}
+.likediv
+{
+    float: left;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: -300px;
+}
+.input_hidden
+{
+    display: none;
+}

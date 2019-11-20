@@ -29,6 +29,17 @@ class Pictures {
         die('Error : ' . $e->getMessage());
       }
     }
+    public function getAllPicture() {
+      try {
+        $req = $this->db->prepare("SELECT * FROM `pictures` ORDER BY `date_creation` DESC LIMIT 20");
+        $res = $req->execute();
+        $picture = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $picture;
+      }
+      catch (Exception $e) {
+        die('Error : ' . $e->getMessage());
+      }
+    }
     public function addPicture() {
       try {
         date_default_timezone_set('Europe/Paris');

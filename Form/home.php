@@ -2,6 +2,7 @@
 session_start();
 include '../config/database.php';
 include '../functions/pictures.class.php';
+include '../functions/addlike.php';
 
 
 ?>
@@ -23,7 +24,7 @@ include '../functions/pictures.class.php';
             <div class="gallery">
                 <?php
                     $db = new Pictures("", "", $_SESSION['username']);
-                    $pics = $db->getPicture();
+                    $pics = $db->getAllPicture();
                     ?>
                         <?php
                         require '../functions/likes.class.php';
@@ -45,12 +46,30 @@ include '../functions/pictures.class.php';
                                     </div>
                                     ';
                             ?>
+                            <?php if (isset($_SESSION['id'])) { 
+                                        if ($liked === false) { ?>
+                                            <div class="likesdiv">
+                                            <form method="post" action="../functions/addlike.php">
+                                                <input type="text" value='<?php echo $id_pic; ?>' class="input_hidden" name="pic_id">
+                                                <button type="submit" class="likes" ><img id=like_<?= $id_pic ?> src="../imgs/like.png"/></button>
+                                            </form>
+                                            </div>
+                                        <?php }
+                                        else ?>
+                                            <div class="likesdiv">
+                                                <button onclick="deleteLike()" class="likes" ><img id=like_<?= $id_pic ?> src="../imgs/like_red.png"/></button>
+                                            </div>
+                            <?php } ?>
                                 <form method="post">
                                     <?php if (isset($_SESSION['id'])){ ?>
                                         <input type="text" maxlength="255" onkeypress="{if (event.keyCode == 13) { event.preventDefault(); addComment(<?= $id_pic ?>, this, '<?= $user ?>')}}"
                                             class="inputcomment" id="new_comment_<?= $id_pic ?>" name="new_comment_<?= $id_pic ?>" placeholder="Insert your comment...">
                                     <?php } ?>
                                 </form>
+                                <div class="likediv">
+                                    <label class="likelbl">Likes :</label>
+                                    <?php echo $nblike; ?>
+                                </div>
                             </div>
                         <?php }
                     ?>

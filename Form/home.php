@@ -45,16 +45,13 @@ include '../functions/pictures.class.php';
                                     </div>
                                     ';
                             ?>
-                            <?php if (isset($_SESSION['id'])) { 
-                                        if ($liked === false) { ?>
+                            <?php if (isset($_SESSION['id'])) {  ?>
                                             <div class="likesdiv">
                                             <form method="post" action="../functions/addlike.php">
                                                 <input type="text" value='<?php echo $id_pic; ?>' class="input_hidden" name="pic_id">
                                                 <button type="submit" class="likes" ><img id=like_<?= $id_pic ?> src="../imgs/like.png"/></button>
                                             </form>
                                             </div>
-                                        <?php }
-                                        else ?>
                                             <form method="post" action="../functions/deletelike.php">
                                                 <input type="text" value='<?php echo $id_pic; ?>' class="input_hidden" name="pic_id">
                                                 <button type="submit" class="likes" ><img id=like_<?= $id_pic ?> src="../imgs/like_red.png"/></button>
@@ -62,10 +59,9 @@ include '../functions/pictures.class.php';
                             <?php } ?>
                                 <form method="post" action="../functions/comment.php">
                                     <?php if (isset($_SESSION['id'])){ ?>
-                                        <input type="text" maxlength="255" onkeypress="{if (event.keyCode == 13) { event.preventDefault(); addComment(<?= $id_pic ?>, this, '<?= $user ?>')}}"
-                                            class="inputcomment" id="new_comment_<?= $id_pic ?>" name="new_comment" placeholder="Insert your comment..."><br />
+                                        <input type="text" maxlength="255" class="inputcomment" id="new_comment" name="new_comment" placeholder="Insert your comment..."><br />
                                         <input type="text" value='<?php echo $id_pic; ?>' class="input_hidden" name="pic_id">
-                                        <button type="submit" class="comment" ><img id=comment_<?= $id_pic ?> src="../imgs/comment.png"/></button>
+                                        <button type="submit" class="comment" ><img id=comment_ src="../imgs/comment.png"/></button>
                                     <?php } ?>
                                 </form>
                                 <div class="likediv">

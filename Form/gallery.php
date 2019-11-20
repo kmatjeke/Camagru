@@ -35,8 +35,10 @@ include_once("gallery.class.php");
           <button id="savebutton">Save Picture</button>
         </div>
     </main><br />
-    <div class="side">
-    </div>
+    <aside>
+    
+    </aside>
+    
     </BODY>
     <?php if (isset($_SESSION['id'])) { ?>
     <script type="text/javascript" src="../javascript/gallery.js"></script>

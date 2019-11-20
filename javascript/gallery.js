@@ -96,6 +96,7 @@
     savebutton.addEventListener('click', function(ev){
       if (data != 0)
         savePicture(data);
+        
       ev.preventDefault();
     }, false);
   
@@ -145,7 +146,7 @@
         if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
           var response = JSON.parse(xhr.responseText);
           var id_pic = response['id_pic'];
-        //   addMinipic(id_pic, data);
+          addMinipic(id_pic, data);
         }
       }
     }

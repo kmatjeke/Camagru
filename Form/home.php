@@ -26,10 +26,15 @@ include '../functions/pictures.class.php';
                     $pics = $db->getPicture();
                     ?>
                         <?php
+                        require '../functions/likes.class.php';
+                        // require '../class/comments.class.php';
                         foreach ($pics as $value){
                             $id_pic = $value['id_pic'];
                             $user = $value['login'];
                             $pic = $value['pic'];
+                            $like = new Likes($id_pic, $user);
+                            $liked = $like->getLike();
+                            $nblike = $like->nbLike();
                             ?>
                             <div class="box">
                             <?php 

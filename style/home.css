@@ -20,7 +20,7 @@ body
 }
 .box{
     width: 500px;
-    height: 400px;
+    height: 430px;
     border: 5px solid gray;
     padding: 10px 10px;
     border-radius: 30px;
@@ -39,20 +39,27 @@ body
 .inputcomment
 {
     width: 300px;
+    height: 25px;
     margin-top: -15px;
     font-size: 18px;
     float: left;
 }
+.comment
+{
+    float: left;
+
+}
 .likes
 {
     float: right;
+    margin-top: -20px;
 }
 .likediv
 {
-    float: left;
+    float: right;
     font-size: 20px;
     margin-top: 20px;
-    margin-left: -300px;
+    
 }
 .input_hidden
 {

@@ -60,10 +60,12 @@ include '../functions/pictures.class.php';
                                                 <button type="submit" class="likes" ><img id=like_<?= $id_pic ?> src="../imgs/like_red.png"/></button>
                                             </form>
                             <?php } ?>
-                                <form method="post">
+                                <form method="post" action="../functions/comment.php">
                                     <?php if (isset($_SESSION['id'])){ ?>
                                         <input type="text" maxlength="255" onkeypress="{if (event.keyCode == 13) { event.preventDefault(); addComment(<?= $id_pic ?>, this, '<?= $user ?>')}}"
-                                            class="inputcomment" id="new_comment_<?= $id_pic ?>" name="new_comment_<?= $id_pic ?>" placeholder="Insert your comment...">
+                                            class="inputcomment" id="new_comment_<?= $id_pic ?>" name="new_comment" placeholder="Insert your comment..."><br />
+                                        <input type="text" value='<?php echo $id_pic; ?>' class="input_hidden" name="pic_id">
+                                        <button type="submit" class="comment" ><img id=comment_<?= $id_pic ?> src="../imgs/comment.png"/></button>
                                     <?php } ?>
                                 </form>
                                 <div class="likediv">

@@ -2,7 +2,6 @@
 session_start();
 include '../config/database.php';
 include '../functions/pictures.class.php';
-include '../functions/addlike.php';
 
 
 ?>
@@ -56,9 +55,10 @@ include '../functions/addlike.php';
                                             </div>
                                         <?php }
                                         else ?>
-                                            <div class="likesdiv">
-                                                <button onclick="deleteLike()" class="likes" ><img id=like_<?= $id_pic ?> src="../imgs/like_red.png"/></button>
-                                            </div>
+                                            <form method="post" action="../functions/deletelike.php">
+                                                <input type="text" value='<?php echo $id_pic; ?>' class="input_hidden" name="pic_id">
+                                                <button type="submit" class="likes" ><img id=like_<?= $id_pic ?> src="../imgs/like_red.png"/></button>
+                                            </form>
                             <?php } ?>
                                 <form method="post">
                                     <?php if (isset($_SESSION['id'])){ ?>

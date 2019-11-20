@@ -2,17 +2,21 @@
 session_start();
 include '../config/database.php';
 include '../functions/pictures.class.php';
+if (!(isset($_SESSION['id'])))
+{
+    header("Location: ../index.php");
+}
 
 ?>
     
 <!DOCTYPE HTML>
 <HTML>
     <HEAD>
-        <link rel="stylesheet" type="text/css" href="../style/home.css">
+        <link rel="stylesheet" type="text/css" href="../style/edit.css">
         <link rel="stylesheet" type="text/css" href="../style/header.css">
         <meta charset="UTF-8">
         <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Gallery</title>
+        <title>Edit</title>
     </HEAD>
     <BODY>
         <HEADER>
@@ -22,7 +26,7 @@ include '../functions/pictures.class.php';
             <div class="gallery">
                 <?php
                     $db = new Pictures("", "", $_SESSION['username']);
-                    $pics = $db->getAllPicture();
+                    $pics = $db->getPicture();
                     ?>
                         <?php
                         require '../functions/likes.class.php';
@@ -45,28 +49,14 @@ include '../functions/pictures.class.php';
                                     ';
                             ?>
                             <?php if (isset($_SESSION['id'])) {  ?>
-                                            <div class="likesdiv">
-                                            <form method="post" action="../functions/addlike.php">
-                                                <input type="text" value='<?php echo $id_pic; ?>' class="input_hidden" name="pic_id">
-                                                <button type="submit" class="likes" ><img id=like_<?= $id_pic ?> src="../imgs/like.png"/></button>
-                                            </form>
+                                            <div class="delete">
+                                                <label>Click The Cross To Delete Picture</label>
+                                                <form method="post" action="../functions/deletepicture.php">
+                                                    <input type="text" value='<?php echo $id_pic; ?>' class="input_hidden" name="pic_id">
+                                                    <button type="submit" class="delete" ><img id=delete_<?= $id_pic ?> src="../imgs/delete.png"/></button>
+                                                </form>
                                             </div>
-                                            <form method="post" action="../functions/deletelike.php">
-                                                <input type="text" value='<?php echo $id_pic; ?>' class="input_hidden" name="pic_id">
-                                                <button type="submit" class="likes" ><img id=like_<?= $id_pic ?> src="../imgs/like_red.png"/></button>
-                                            </form>
                             <?php } ?>
-                                <form method="post" action="../functions/comment.php">
-                                    <?php if (isset($_SESSION['id'])){ ?>
-                                        <input type="text" maxlength="255" class="inputcomment" id="new_comment" name="new_comment" placeholder="Insert your comment..."><br />
-                                        <input type="text" value='<?php echo $id_pic; ?>' class="input_hidden" name="pic_id">
-                                        <button type="submit" class="comment" ><img id=comment_ src="../imgs/comment.png"/></button>
-                                    <?php } ?>
-                                </form>
-                                <div class="likediv">
-                                    <label class="likelbl">Likes :</label>
-                                    <?php echo $nblike; ?>
-                                </div>
                             </div>
                         <?php }
                     ?>

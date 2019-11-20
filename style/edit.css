@@ -1,0 +1,47 @@
+body
+{
+    background-color: silver;
+}
+
+.allgallery
+{
+    text-align: center;
+}
+.gallery
+{
+    margin-top: 20px;
+    width: 1590px;
+    margin-left: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 10px solid black;
+    background-color: black;
+    border-radius: 30px;
+}
+.box{
+    width: 500px;
+    height: 430px;
+    border: 5px solid gray;
+    padding: 10px 10px;
+    border-radius: 30px;
+    background-color: silver;
+}
+.images
+{
+    width: 500px;
+    height: 310px;
+    border-radius: 15px;
+}
+.users
+{
+    margin-top: -8px;
+}
+.input_hidden
+{
+    display: none;
+}
+
+.delete
+{
+    margin-top: 20px;
+}

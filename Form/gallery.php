@@ -26,9 +26,10 @@ include_once("gallery.class.php");
         <div class="webcam" id="column1">
           <video id="video"></video><br />
           <button id="startbutton">Take Photo</button>
-          <button id="img1" style=background-color:#f2f2f2><img src="../imgs/image1.png" width=100/></button>
-          <button id="img2" style=background-color:#f2f2f2><img src="../imgs/image2.png" width=100/></button>
-          <button id="img3" style=background-color:#f2f2f2><img src="../imgs/image3.png" width=100/></button>
+          <button id="img1" onclick="addsticker(1)" style=background-color:#f2f2f2><img src="../imgs/image1.png" width=100/></button>
+          <button id="img2" onclick="addsticker(2)" style=background-color:#f2f2f2><img src="../imgs/image2.png" width=100/></button>
+          <button id="img3" onclick="addsticker(3)" style=background-color:#f2f2f2><img src="../imgs/image3.png" width=100/></button>
+          <img src="" alt="" id="photo" hidden>
         <label class="file" title="">
             <input type="file" accept="image/*" name="uploadpic" id="uploadpic" onchange="this.parentNode.setAttribute('title', this.value.replace(/^.*[\\/]/, ''))" />
         </label>

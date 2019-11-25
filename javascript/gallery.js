@@ -4,12 +4,13 @@
         video = document.querySelector('#video'),
         cover = document.querySelector('#cover'),
         canvas = document.querySelector('#canvas'),
+        context = canvas.getContext('2d'),
         photo = document.querySelector('#photo'),
         startbutton = document.querySelector('#startbutton'),
         savebutton = document.querySelector('#savebutton'),
-        img1 = document.querySelector('#img1'),
-        img2 = document.querySelector('#img2'),
-        img3 = document.querySelector('#img3'),
+        // img1 = document.getElementById('#img1'),
+        // img2 = document.getElementById('#img2'),
+        // img3 = document.getElementById('#img3'),
         upload = document.querySelector('#uploadpic'),
         submitupload = document.querySelector('#uploadsubmitbutton'),
         data = 0,
@@ -150,6 +151,49 @@
         }
       }
     }
+    
+    // img1.addEventListener('click', function() {
+    //   var image = new Image();
+    //   var img = new Image();
+
+    //   ev.preventDefault();
+    // }, false);
+
+    // img2.addEventListener('click', function(ev) {
+    //   addsticker(2);
+    //   ev.preventDefault();
+    // }, false);
+
+    // img3.addEventListener('click', function(ev) {
+    //   addsticker(3);
+    //   ev.preventDefault();
+    // }, false);
+
+    function addsticker(path){
+      var image = new Image;
+      name = null;
+
+      if (path == 1)
+      {
+        name = "../imgs/image1.png";
+      }
+      if (path == 2)
+      {
+        name = "../imgs/image2.png";
+      }
+      if (path == 3)
+      {
+        name = "../imgs/image3.png";
+      }
+      image.src = name;
+      if (canvas)
+      {
+        context.drawImage(image, 0, 0, 70, 70);
+        canvas.setAttribute('value', canvas.toDataURL('image/png'));
+        document.getElementById('canvas').innerHTML= '<img src='+canvas.src+'>';
+      }
+    }
+      
   
   })();
   

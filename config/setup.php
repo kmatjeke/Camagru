@@ -22,7 +22,8 @@ try {
 	`Surname` VARCHAR(255) NOT NULL,
 	`password` VARCHAR(255) NOT NULL,
 	`token` VARCHAR(50) NOT NULL,
-	`verified` VARCHAR(1) NOT NULL DEFAULT 'N') ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+	`verified` VARCHAR(1) NOT NULL DEFAULT 'N',
+  `notifications` VARCHAR(1) NOT NULL DEFAULT 'N') ENGINE=InnoDB DEFAULT CHARSET=utf8;";
   $pdo->exec($sql);   // use exec() because no results are returned
   $sql = "CREATE TABLE IF NOT EXISTS `pictures` (
   `id_pic` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -49,13 +50,3 @@ catch (PDOException $e) {
 }
 $pdo = null;
 ?>
-
-CREATE TABLE IF NOT EXISTS `users` (
-        `user_id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        `username` VARCHAR(30) NOT NULL,
-        `E_Mail` VARCHAR(255) NOT NULL,
-        `Firstname` VARCHAR(255) NOT NULL,
-        `Surname` VARCHAR(255) NOT NULL,
-        `password` VARCHAR(255) NOT NULL,
-        `token` VARCHAR(50) NOT NULL,
-        `verified` VARCHAR(1) NOT NULL DEFAULT 'N') ENGINE=InnoDB DEFAULT CHARSET=utf8;";

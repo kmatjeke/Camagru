@@ -10,6 +10,7 @@
             <a href="../Form/home.php" class="home">HOME</a>
             <a href="../Form/edit.php" class="home">MY PICTURES</a>
             <a href="../Form/gallery.php">CAMERA</a>
+            <a href="../Form/update.php">UPDATE PROFILE</a>
             <a href="../functions/logout.class.php">LOG OUT</a>
         </div>
     </div>

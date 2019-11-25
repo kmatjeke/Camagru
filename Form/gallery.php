@@ -6,6 +6,7 @@ if (!(isset($_SESSION['id'])))
 }
 
 include_once("gallery.class.php");
+include '../functions/pictures.class.php';
 
 ?>
 <!DOCTYPE html>
@@ -17,9 +18,7 @@ include_once("gallery.class.php");
         <title>Camera</title>
     </HEAD>
     <BODY>
-        <!-- <HEADER>
             <?php include('../includes/header.php') ?>
-        </HEADER> -->
         <?php include '../includes/header.php'; ?>
     <div class="allwebcam">
       <main class="webcamapercu">
@@ -38,6 +37,30 @@ include_once("gallery.class.php");
         <div class="apercu">
           <canvas id="canvas"></canvas><br />
           <button id="savebutton">Save Picture</button>
+        </div>
+        <div class="sidepic">
+            <?php
+              $db = new Pictures("", "", $_SESSION['username']);
+              $pics = $db->getPicture();
+              ?>
+                  <?php
+                  foreach ($pics as $value){
+                      $id_pic = $value['id_pic'];
+                      $date = $value['date_creation'];
+                      $pic = $value['pic'];
+                      ?>
+                      <div class="box">
+                      <?php 
+                          echo ' 
+                              <div class="picture">
+                                  <h2 class="users">'.$date.'
+                                  <img class="images" src="data:image/png;base64,'.base64_encode($pic).'"/>
+                              </div>
+                              ';
+                      ?>
+                      </div>
+                  <?php }
+              ?>
         </div>
     </main><br />
     <aside>

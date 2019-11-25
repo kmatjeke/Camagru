@@ -77,4 +77,38 @@ function update_email($login, $mail) {
       return ($e->getMessage());
     }
 }
+
+function update_username($login, $newuser) {
+  include '../config/database.php';
+  try {
+      $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $query= $dbh->prepare("SELECT user_id FROM users WHERE username=:newuser");
+      $query->execute(array(':newuser' => $newuser));
+      if ($val = $query->fetch()) {
+        $_SESSION['error'] = "user already exist";
+        $query->closeCursor();
+        return(-1);
+      }
+      $query->closeCursor();
+
+      $query= $dbh->prepare("UPDATE users SET username=:username WHERE username=:login");
+      $query->execute(array(':username' => $newuser, ':login' => $login));
+      $query->closeCursor();
+
+      $query= $dbh->prepare("UPDATE pictures SET login=:username WHERE login=:login");
+      $query->execute(array(':username' => $newuser, ':login' => $login));
+      $query->closeCursor();
+
+      $query= $dbh->prepare("UPDATE likes SET login=:username WHERE login=:login");
+      $query->execute(array(':username' => $newuser, ':login' => $login));
+      $query->closeCursor();
+
+      $query= $dbh->prepare("UPDATE comments SET login=:username WHERE login=:login");
+      $query->execute(array(':username' => $newuser, ':login' => $login));
+      return (0);
+    } catch (PDOException $e) {
+      return ($e->getMessage());
+    }
+}
 ?>

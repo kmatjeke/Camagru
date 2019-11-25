@@ -14,4 +14,6 @@
     comment_off($login);
     header("Location: ../Form/update.php");
   }
+  else
+    header("Location: ../Form/update.php");
 ?>

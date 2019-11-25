@@ -13,7 +13,6 @@ function add_like($pic_id, $login, $creation_date) {
     }
 }
 
-
 function add_comm($pic_id, $comment, $login, $creation_date) {
   include '../config/database.php';
   try {
@@ -53,4 +52,29 @@ function comment_off($login) {
     }
 }
 
+function update_password($login, $password) {
+  include '../config/database.php';
+  try {
+      $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $query= $dbh->prepare("UPDATE users SET password=:password WHERE username=:login");
+      $query->execute(array(':password' => $password, ':login' => $login));
+      return (0);
+    } catch (PDOException $e) {
+      return ($e->getMessage());
+    }
+}
+
+function update_email($login, $mail) {
+  include '../config/database.php';
+  try {
+      $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $query= $dbh->prepare("UPDATE users SET E_Mail=:mail WHERE username=:login");
+      $query->execute(array(':mail' => $mail, ':login' => $login));
+      return (0);
+    } catch (PDOException $e) {
+      return ($e->getMessage());
+    }
+}
 ?>

@@ -9,6 +9,7 @@ BODY {
     margin-top: -20px;
     margin-bottom: 30px;
 }
+
 .center_div {
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.6);
@@ -73,4 +74,91 @@ BODY {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.update_info
+{
+    margin-top: 20px;
+    border: 3px solid white;
+}
+
+.title2
+{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 90px;
+    /* margin-bottom: 30px; */
+}
+
+.divusername
+{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#username
+{
+    /* float: right; */
+    margin-right: 9px;
+    width: 200px;
+}
+.divemail
+{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#mail
+{
+    margin-right: 9px;
+    width: 200px;
+}
+.divfname
+{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#fname
+{
+    margin-right: 9px;
+    width: 200px;
+}
+.divsname
+{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#sname
+{
+    margin-right: 9px;
+    width: 200px;
+}
+.divpass
+{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#password
+{
+    margin-right: 9px;
+    width: 200px;
+}
+.divrepass
+{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#re-password
+{
+    margin-right: 9px;
+    width: 200px;
+}
+
+.button_update
+{
+    margin-left: 120px;
+}
+
+.passform
+{
+    margin-top: 50px;
+    margin-bottom: 20px;
 }

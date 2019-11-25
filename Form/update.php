@@ -29,17 +29,50 @@ session_start();
             <div class="divsubmit">
               <button type="submit" class="submitbutton">Update Notifications</button>
             </div>
-            <span>
-              <?php
-              echo $_SESSION['error'];
-              $_SESSION['error'] = null;
-              if (isset($_SESSION['update_success'])) {
-                echo "Profile successfully updated";
-                $_SESSION['update_success'] = null;
-              }
-              ?>
-            </span>
           </form>
+          <div class="title2">Update Info</div>
+          <div class="update_info">
+            <form method="post" style="position: relative;" action="../update_infochecks/update_username.php">
+                <div class ="divusername">
+                <label>Username: </label>
+                <input id="username" name="username" placeholder="username" type="text" required>
+                </div>
+                <div class="button_update">
+                    <button type="submit" class="submitbutton">Update Username</button>
+                </div>
+            </form>
+            <form method="post" style="position: relative;" action="../update_infochecks/update_email.php">
+                <div class ="divemail">
+                <label>E-Mail: </label>
+                    <input id="mail" name="email" placeholder="email" type="mail" required>
+                </div>
+                <div class="button_update">
+                    <button type="submit" class="submitbutton">Update e-mail</button>
+                </div>
+            </form>
+            <form method="post" class="passform" style="position: relative;" action="../update_infochecks/update_password.php">
+                <div class="divpass">
+                <label>Password: </label>
+                <input id="password" name="password" placeholder="password" type="password" required>
+                </div>
+                <div class="divrepass">
+                <label>verify Password: </label>
+                <input id="re-password" name="re-password" placeholder="re-enter password" type="password" required>
+                </div>
+                <div class="button_update">
+                    <button type="submit" class="submitbutton">Update Password</button>
+                </div>
+                <span>
+                    <?php
+                    echo $_SESSION['error'];
+                    $_SESSION['error'] = null;
+                    if (isset($_SESSION['update'])) {
+                        echo $_SESSION['update'];
+                        $_SESSION['update'] = null;
+                      }
+                    ?>
+                </span>
+            </form>
         </div>
     </div>
   </BODY>

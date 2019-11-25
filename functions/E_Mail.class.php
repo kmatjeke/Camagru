@@ -38,4 +38,23 @@ function send_forget_mail($toAddr, $toUsername, $password) {
   ';
   mail($toAddr, $subject, $message, $headers);
 }
+
+function send_comment_mail($toAddr, $toUsername, $comment) {
+  $subject = "[CAMAGRU] - New Comment";
+  $headers  = 'MIME-Version: 1.0' . "\r\n";
+  $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+  $headers .= 'From: <no-reply@student.wethinkcode.co.za>' . "\r\n";
+  $message = '
+  <html>
+    <head>
+      <title>' . $subject . '</title>
+    </head>
+    <body>
+      Hello ' . htmlspecialchars($toUsername) . ', <br />
+      Someone commented on your picture:  ' .$comment . '</br>
+    </body>
+  </html>
+  ';
+  mail($toAddr, $subject, $message, $headers);
+}
 ?>

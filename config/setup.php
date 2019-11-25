@@ -49,4 +49,5 @@ catch (PDOException $e) {
   die('Erreur : ' . $e->getMessage());
 }
 $pdo = null;
+header('Location: ../index.php');
 ?>

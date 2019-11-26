@@ -20,14 +20,18 @@ include '../functions/pictures.class.php';
     </HEAD>
     <BODY>
         <?php include '../includes/header.php'; ?>
+    <div class="sticker_list">
+        <button id="img1"  style=background-color:#f2f2f2><img src="../imgs/image1.png" class= "sticker"/></button>
+        <button id="img2" style=background-color:#f2f2f2><img src="../imgs/image2.png" class= "sticker" /></button>
+        <button id="img3" style=background-color:#f2f2f2><img src="../imgs/image3.png" class= "sticker" /></button>
+        <button id="img4" style=background-color:#f2f2f2><img src="../imgs/image4.png" class= "sticker" /></button>
+        <button id="img5" style=background-color:#f2f2f2><img src="../imgs/image5.png" class= "sticker" /></button>
+    </div>
     <div class="allwebcam">
       <main class="webcamapercu">
         <div class="webcam" id="column1">
           <video id="video"></video><br />
           <button id="startbutton">Take Photo</button>
-          <button id="img1" style=background-color:#f2f2f2><img src="../imgs/image1.png" width=100/></button>
-          <button id="img2" style=background-color:#f2f2f2><img src="../imgs/image2.png" width=100/></button>
-          <button id="img3" style=background-color:#f2f2f2><img src="../imgs/image3.png" width=100/></button>
           <img src="http://placekitten.com/g/200/300" alt="" id="photo" hidden>
         <label class="file" title="">
             <input type="file" accept="image/*" name="uploadpic" id="uploadpic" onchange="this.parentNode.setAttribute('title', this.value.replace(/^.*[\\/]/, ''))" />

@@ -11,6 +11,8 @@
         img1 = document.getElementById('img1'),
         img2 = document.getElementById('img2'),
         img3 = document.getElementById('img3'),
+        img4 = document.getElementById('img4'),
+        img5 = document.getElementById('img5'),
         upload = document.querySelector('#uploadpic'),
         submitupload = document.querySelector('#uploadsubmitbutton'),
         data = 0,
@@ -147,6 +149,14 @@
       addsticker(3);
     });
 
+    img4.addEventListener('click', function(ev) {
+      addsticker(4);
+    });
+
+    img5.addEventListener('click', function(ev) {
+      addsticker(5);
+    });
+
     function addsticker(path){
       var image = new Image;
       var newcanvas = document.createElement('canvas');
@@ -155,22 +165,65 @@
       if (path == 1)
       {
         name = "../imgs/image1.png";
+        image.src = name;
+        if (canvas)
+        {
+          context.drawImage(image, 0, 180, 90, 70);
+          canvas.setAttribute('src', canvas.toDataURL('image/png'));
+          var pic = canvas.toDataURL('image/png');
+          mergePicAndDisplay(pic);
+        }
       }
       if (path == 2)
       {
         name = "../imgs/image2.png";
+        image.src = name;
+        if (canvas)
+        {
+          context.drawImage(image, 250, 0, 70, 70);
+          canvas.setAttribute('src', canvas.toDataURL('image/png'));
+          var pic = canvas.toDataURL('image/png');
+          mergePicAndDisplay(pic);
+        }
+        
       }
       if (path == 3)
       {
         name = "../imgs/image3.png";
+        image.src = name;
+        if (canvas)
+        {
+          context.drawImage(image, 0, 0, 90, 70);
+          canvas.setAttribute('src', canvas.toDataURL('image/png'));
+          var pic = canvas.toDataURL('image/png');
+          mergePicAndDisplay(pic);
+        }
       }
-      image.src = name;
-      if (canvas)
+
+      if (path == 4)
       {
-        context.drawImage(image, 0, 0, 70, 70);
-        canvas.setAttribute('src', canvas.toDataURL('image/png'));
-        var pic = canvas.toDataURL('image/png');
-        mergePicAndDisplay(pic);
+        name = "../imgs/image4.png";
+        image.src = name;
+        if (canvas)
+        {
+          context.drawImage(image, 30, 30, 90, 90);
+          canvas.setAttribute('src', canvas.toDataURL('image/png'));
+          var pic = canvas.toDataURL('image/png');
+          mergePicAndDisplay(pic);
+        }
+      }
+
+      if (path == 5)
+      {
+        name = "../imgs/image5.png";
+        image.src = name;
+        if (canvas)
+        {
+          context.drawImage(image, 110, 0, 90, 90);
+          canvas.setAttribute('src', canvas.toDataURL('image/png'));
+          var pic = canvas.toDataURL('image/png');
+          mergePicAndDisplay(pic);
+        }
       }
     }
       

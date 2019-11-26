@@ -33,7 +33,7 @@ session_start();
             </div>
             <div class="divpass">
               <label>Password: </label>
-              <input id="password" name="password" placeholder="password" type="password" required>
+              <input id="password" name="password" placeholder="password" type="password" required pattern="^(?=.*[A-Z])(?=.*[0-9]).{6,32}$" oninput="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' : 'invalid password.');">
             </div>
             <div class="divrepass">
               <label>verify Password: </label>

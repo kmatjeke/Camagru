@@ -131,7 +131,6 @@
         if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
           var response = JSON.parse(xhr.responseText);
           var id_pic = response['id_pic'];
-          addMinipic(id_pic, data);
         }
       }
     }

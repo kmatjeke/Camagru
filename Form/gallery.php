@@ -26,6 +26,9 @@ include '../functions/pictures.class.php';
         <button id="img3" style=background-color:#f2f2f2><img src="../imgs/image3.png" class= "sticker" /></button>
         <button id="img4" style=background-color:#f2f2f2><img src="../imgs/image4.png" class= "sticker" /></button>
         <button id="img5" style=background-color:#f2f2f2><img src="../imgs/image5.png" class= "sticker" /></button>
+        <button id="img6" style=background-color:#f2f2f2><img src="../imgs/image6.png" class= "sticker" /></button>
+        <button id="img7" style=background-color:#f2f2f2><img src="../imgs/image7.png" class= "sticker" /></button>
+        <button id="img8" style=background-color:#f2f2f2><img src="../imgs/image8.png" class= "sticker" /></button>
     </div>
     <div class="allwebcam">
       <main class="webcamapercu">

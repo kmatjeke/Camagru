@@ -8,9 +8,9 @@
         photo = document.querySelector('#photo'),
         startbutton = document.querySelector('#startbutton'),
         savebutton = document.querySelector('#savebutton'),
-        // img1 = document.getElementById('#img1'),
-        // img2 = document.getElementById('#img2'),
-        // img3 = document.getElementById('#img3'),
+        img1 = document.getElementById('img1'),
+        img2 = document.getElementById('img2'),
+        img3 = document.getElementById('img3'),
         upload = document.querySelector('#uploadpic'),
         submitupload = document.querySelector('#uploadsubmitbutton'),
         data = 0,
@@ -120,22 +120,6 @@
         takePicture(0);
     }, false);
   
-    function addMinipic(id, data) {
-      var div = document.createElement("DIV");
-      div.setAttribute("class", "displaypic");
-      var pic = document.createElement("IMG");
-      pic.setAttribute("src", data);
-      pic.setAttribute("class", "minipic");
-      var x = document.createElement("IMG");
-      x.setAttribute("src", "../imgs/delete.png");
-      x.setAttribute("class", "deletepic");
-      x.setAttribute("id", "delete_"+id);
-      x.setAttribute("onclick", "deletePicture("+id+")");
-      var minipic = document.getElementById('side');
-      minipic.insertBefore(div, minipic.childNodes[0]);
-      div.insertBefore(x, div.childNodes[0]);
-      div.insertBefore(pic, div.childNodes[0]);
-    }
   
     function savePicture(data) {
       var picData = data.replace("data:image/png;base64,", "");
@@ -152,25 +136,21 @@
       }
     }
     
-    // img1.addEventListener('click', function() {
-    //   var image = new Image();
-    //   var img = new Image();
+    img1.addEventListener('click', function() {
+      addsticker(1);
+    });
 
-    //   ev.preventDefault();
-    // }, false);
+    img2.addEventListener('click', function(ev) {
+      addsticker(2);
+    });
 
-    // img2.addEventListener('click', function(ev) {
-    //   addsticker(2);
-    //   ev.preventDefault();
-    // }, false);
-
-    // img3.addEventListener('click', function(ev) {
-    //   addsticker(3);
-    //   ev.preventDefault();
-    // }, false);
+    img3.addEventListener('click', function(ev) {
+      addsticker(3);
+    });
 
     function addsticker(path){
       var image = new Image;
+      var newcanvas = document.createElement('canvas');
       name = null;
 
       if (path == 1)
@@ -189,12 +169,12 @@
       if (canvas)
       {
         context.drawImage(image, 0, 0, 70, 70);
-        canvas.setAttribute('value', canvas.toDataURL('image/png'));
-        document.getElementById('canvas').innerHTML= '<img src='+canvas.src+'>';
+        canvas.setAttribute('src', canvas.toDataURL('image/png'));
+        var pic = canvas.toDataURL('image/png');
+        mergePicAndDisplay(pic);
+        // document.getElementById('canvas').innerHTML= '<img src='+canvas.src+'>';
       }
     }
       
   
   })();
-  
-

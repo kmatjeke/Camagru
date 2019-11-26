@@ -65,3 +65,23 @@ body
 {
     display: none;
 }
+
+.pagenumbersbox
+{
+    height: 40px;
+    width: 1590px;
+    font-size: 26px;
+    position: relative;
+    background-color: silver;
+    margin-top: 3px;
+    margin: auto;
+    border-radius: 10px 10px;
+}
+.pagenumbers
+{
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: block;
+    
+}

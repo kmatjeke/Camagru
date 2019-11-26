@@ -21,13 +21,37 @@ include '../functions/pictures.class.php';
         <main class="allgallery">
             <div class="gallery">
                 <?php
+                    $results_per_page = 6;
                     $db = new Pictures("", "", $_SESSION['username']);
+                    $count = $db->nbPictures();
+                    $nbofpages = ceil($count / $results_per_page);
                     $pics = $db->getAllPicture();
+                ?>
+                    <?php
+                    if (!isset($_GET['page'])){
+                        $page = 1;
+                    }
+                    else
+                    {
+                        $page = $_GET['page'];
+                    }
+                    $this_page_result = ($page-1) * $results_per_page;
+                    $picbypage = $db->getPicturesByPage($this_page_result, $results_per_page);
                     ?>
+                    <div class="pagenumbersbox">
+                    <?php
+                    for ($page = 1; $page <= $nbofpages; $page++) {
+                        echo '
+                                <div class="pagenumbers">
+                                    <a href="home.php?page=' . $page . '">' . $page . '</a>
+                                </div>';
+                    }
+                    ?>
+                    </div>
                         <?php
                         require '../functions/likes.class.php';
                         // require '../class/comments.class.php';
-                        foreach ($pics as $value){
+                        foreach ($picbypage as $value){
                             $id_pic = $value['id_pic'];
                             $user = $value['login'];
                             $pic = $value['pic'];

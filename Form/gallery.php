@@ -18,7 +18,6 @@ include '../functions/pictures.class.php';
         <title>Camera</title>
     </HEAD>
     <BODY>
-            <?php include('../includes/header.php') ?>
         <?php include '../includes/header.php'; ?>
     <div class="allwebcam">
       <main class="webcamapercu">
@@ -40,27 +39,42 @@ include '../functions/pictures.class.php';
         </div>
         <div class="sidepic">
             <?php
-              $db = new Pictures("", "", $_SESSION['username']);
-              $pics = $db->getPicture();
-              ?>
-                  <?php
-                  foreach ($pics as $value){
-                      $id_pic = $value['id_pic'];
-                      $date = $value['date_creation'];
-                      $pic = $value['pic'];
-                      ?>
-                      <div class="box">
-                      <?php 
-                          echo ' 
-                              <div class="picture">
-                                  <h2 class="users">'.$date.'
-                                  <img class="images" src="data:image/png;base64,'.base64_encode($pic).'"/>
-                              </div>
-                              ';
-                      ?>
-                      </div>
-                  <?php }
-              ?>
+                $results_per_page = 3;
+                $db = new Pictures("", "", $_SESSION['username']);
+                $count = $db->nbPicturesByLogin();
+                $nbofpages = ceil($count / $results_per_page);
+                $pics = $db->getPicture();
+            ?>
+                <?php
+                if (!isset($_GET['page'])){
+                    $page = 1;
+                }
+                else
+                {
+                    $page = $_GET['page'];
+                }
+                $this_page_result = ($page-1) * $results_per_page;
+                $picbypage = $db->getPicturesByPageByLogin($this_page_result, $results_per_page);
+                for ($page = 1; $page <= $nbofpages; $page++) {
+                    echo '<a href="gallery.php?page=' . $page . '">' . $page . '</a>';
+                }
+                foreach ($picbypage as $value){
+                    $id_pic = $value['id_pic'];
+                    $date = $value['date_creation'];
+                    $pic = $value['pic'];
+                ?>
+                <div class="box">
+                <?php 
+                    echo ' 
+                        <div class="picture">
+                            <h2 class="users">'.$date.'
+                            <img class="images" src="data:image/png;base64,'.base64_encode($pic).'"/>
+                        </div>
+                        ';
+                ?>
+                </div>
+            <?php } 
+            ?>
         </div>
     </main><br />
     <aside>

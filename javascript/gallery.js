@@ -171,7 +171,6 @@
         canvas.setAttribute('src', canvas.toDataURL('image/png'));
         var pic = canvas.toDataURL('image/png');
         mergePicAndDisplay(pic);
-        // document.getElementById('canvas').innerHTML= '<img src='+canvas.src+'>';
       }
     }
       

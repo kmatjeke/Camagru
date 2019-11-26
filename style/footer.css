@@ -1,0 +1,29 @@
+.footer
+{
+    position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: silver;
+   color: white;
+   text-align: center;
+}
+
+.middle
+{
+    text-align: center;
+}
+
+.right
+{
+    /* float: right; */
+    text-align: right;
+    display: block;
+    background-color: black;
+    margin-top: -17px;
+}
+
+.link
+{
+    color: white;
+}

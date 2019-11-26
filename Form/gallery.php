@@ -14,6 +14,7 @@ include '../functions/pictures.class.php';
     <HEAD>
         <link rel="stylesheet" type="text/css" href="../style/gallery.css">
         <link rel="stylesheet" type="text/css" href="../style/header.css">
+        <link rel="stylesheet" type="text/css" href="../style/footer.css">
         <meta charset="UTF-8">
         <title>Camera</title>
     </HEAD>
@@ -77,10 +78,9 @@ include '../functions/pictures.class.php';
             ?>
         </div>
     </main><br />
-    <aside>
-    
-    </aside>
-    
+    <FOOTER>
+        <?php include '../includes/footer.php'; ?>
+    </FOOTER>
     </BODY>
     <?php if (isset($_SESSION['id'])) { ?>
     <script type="text/javascript" src="../javascript/gallery.js"></script>

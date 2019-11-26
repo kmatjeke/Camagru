@@ -16,6 +16,8 @@
         img6 = document.getElementById('img6'),
         img7 = document.getElementById('img7'),
         img8 = document.getElementById('img8'),
+        img9 = document.getElementById('img9'),
+        img10 = document.getElementById('img10'),
         upload = document.querySelector('#uploadpic'),
         submitupload = document.querySelector('#uploadsubmitbutton'),
         data = 0,
@@ -172,6 +174,14 @@
       addsticker(8);
     });
 
+    img9.addEventListener('click', function(ev) {
+      addsticker(9);
+    });
+
+    img10.addEventListener('click', function(ev) {
+      addsticker(10);
+    });
+
     function addsticker(path){
       var image = new Image;
       var newcanvas = document.createElement('canvas');
@@ -264,6 +274,30 @@
       if (path == 8)
       {
         name = "../imgs/image8.png";
+        image.src = name;
+        if (canvas)
+        {
+          context.drawImage(image, 0, 0, 320, 240);
+          canvas.setAttribute('src', canvas.toDataURL('image/png'));
+          var pic = canvas.toDataURL('image/png');
+          mergePicAndDisplay(pic);
+        }
+      }
+      if (path == 9)
+      {
+        name = "../imgs/image9.png";
+        image.src = name;
+        if (canvas)
+        {
+          context.drawImage(image, 0, 0, 320, 240);
+          canvas.setAttribute('src', canvas.toDataURL('image/png'));
+          var pic = canvas.toDataURL('image/png');
+          mergePicAndDisplay(pic);
+        }
+      }
+      if (path == 10)
+      {
+        name = "../imgs/image10.png";
         image.src = name;
         if (canvas)
         {

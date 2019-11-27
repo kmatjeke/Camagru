@@ -6,6 +6,7 @@ session_start();
   <HEAD>
       <link rel="stylesheet" type="text/css" href="../style/update.css">
       <link rel="stylesheet" type="text/css" href="../style/header.css">
+      <link rel="stylesheet" type="text/css" href="../style/footer.css">
       <meta charset="UTF-8">
       <title>Update Profile</title>
   </HEAD>
@@ -75,5 +76,8 @@ session_start();
             </form>
         </div>
     </div>
+    <FOOTER>
+        <?php include '../includes/footer.php'; ?>
+    </FOOTER>
   </BODY>
 </HTML>

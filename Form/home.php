@@ -19,7 +19,6 @@ include '../functions/pictures.class.php';
         <HEADER>
             <?php include('../includes/header.php') ?>
         </HEADER>
-        <div class="bg-image"></div>
         <main class="allgallery">
             <div class="gallery">
                 <?php

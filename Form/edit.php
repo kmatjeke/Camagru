@@ -14,7 +14,6 @@ if (!(isset($_SESSION['id'])))
     <HEAD>
         <link rel="stylesheet" type="text/css" href="../style/edit.css">
         <link rel="stylesheet" type="text/css" href="../style/header.css">
-        <link rel="stylesheet" type="text/css" href="../style/footer.css">
         <meta charset="UTF-8">
         <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Edit</title>
@@ -23,7 +22,6 @@ if (!(isset($_SESSION['id'])))
         <HEADER>
             <?php include('../includes/header.php') ?>
         </HEADER>
-        <div class="bg-image"></div>
         <main class="allgallery">
             <div class="gallery">
                 <?php
@@ -64,9 +62,7 @@ if (!(isset($_SESSION['id'])))
                     ?>
             </div>
         </main>
-        <FOOTER>
-            <?php include '../includes/footer.php'; ?>
-        </FOOTER>
+        <footer></footer>
         <script type="text/javascript" src="../javascript/home.js"></script>
     </BODY>
 </HTML>

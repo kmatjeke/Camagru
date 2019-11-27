@@ -2,7 +2,6 @@
 session_start();
 include('forgot_notice_send.class.php');
 
-// retreive values
 $mail = $_POST['email'];
 $_SESSION['error'] = null;
 if (($result = reset_password($mail)) !== 0)

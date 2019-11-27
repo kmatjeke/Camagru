@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'login_check.class.php';
-// retreive values
+
 $mail = $_POST['mail'];
 $password = $_POST['userpassword'];
 if (($val = login_user($mail, $password)) == -1)

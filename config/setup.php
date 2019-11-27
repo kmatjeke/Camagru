@@ -3,8 +3,7 @@
 require 'database.php';
 try {
   $pdo = new PDO($DB_DSN_FIRST, $DB_USER, $DB_PASSWORD);
-  // set the PDO error mode to exception
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // ATTR_ERRMODE = Rapport d'erreur => ERRMODE_EXCEPTION = emet une exception (silent par defaut)
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $sql = 'CREATE DATABASE IF NOT EXISTS db_camagru';
   $pdo->exec($sql);
 }
@@ -24,7 +23,7 @@ try {
 	`token` VARCHAR(50) NOT NULL,
 	`verified` VARCHAR(1) NOT NULL DEFAULT 'N',
   `notifications` VARCHAR(1) NOT NULL DEFAULT 'N') ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-  $pdo->exec($sql);   // use exec() because no results are returned
+  $pdo->exec($sql);
   $sql = "CREATE TABLE IF NOT EXISTS `pictures` (
   `id_pic` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   `login` VARCHAR(30) NOT NULL,

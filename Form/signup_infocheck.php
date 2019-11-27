@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once '../functions/signup.class.php';
-// retreive values
+
 $mail = $_POST['email'];
 $username = $_POST['username'];
 $firstname = $_POST['firstname'];

@@ -9,6 +9,6 @@ try {
         $dbh->exec($sql);
         echo "Database droped successfully\n";
     } catch (PDOException $e) {
-        echo "ERROR DROPING DB: \n".$e->getMessage()."\n";
+        echo "ERROR DROPPING DB: \n".$e->getMessage()."\n";
     }
 ?>

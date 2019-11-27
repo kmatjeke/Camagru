@@ -36,5 +36,4 @@ try
         return ($e->getMessage());
     }
 
-// header("Location: ../Form/home.php");
 ?>

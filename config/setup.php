@@ -8,7 +8,7 @@ try {
   $pdo->exec($sql);
 }
 catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
+    die('Error : ' . $e->getMessage());
 }
 try {
   $pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -45,7 +45,7 @@ try {
   $pdo->exec($sql);
 }
 catch (PDOException $e) {
-  die('Erreur : ' . $e->getMessage());
+  die('Error : ' . $e->getMessage());
 }
 $pdo = null;
 header('Location: ../index.php');

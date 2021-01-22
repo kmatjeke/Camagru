@@ -5,7 +5,7 @@ if (!(isset($_SESSION['id'])))
     header("Location: ../index.php");
 }
 
-include_once("gallery.class.php");
+// include_once("gallery.class.php");
 include '../functions/pictures.class.php';
 
 ?>
@@ -32,8 +32,7 @@ include '../functions/pictures.class.php';
         <button id="img9" style=background-color:#f2f2f2><img src="../imgs/image9.png" class= "sticker" /></button>
         <button id="img10" style=background-color:#f2f2f2><img src="../imgs/image10.png" class= "sticker" /></button>
     </div>
-    <div class="allwebcam">
-    </div>
+
     <div class="allwebcam">
       <main class="webcamapercu">
         <div class="webcam" id="column1">

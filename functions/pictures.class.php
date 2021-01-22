@@ -15,7 +15,7 @@ class Pictures {
         $this->login = $login;
       }
       catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
+        die('Error : ' . $e->getMessage());
       }
     }
     public function getPicture() {
@@ -62,7 +62,7 @@ class Pictures {
         return $picture;
       }
       catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
+        die('Error : ' . $e->getMessage());
       }
     }
     public function getPicturesByPageByLogin($page, $nbpicbypage) {
@@ -73,7 +73,7 @@ class Pictures {
         return $picture;
       }
       catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
+        die('Error : ' . $e->getMessage());
       }
     }
     public function nbPictures() {
@@ -83,7 +83,7 @@ class Pictures {
         return $nbpic['count(*)'];
       }
       catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
+        die('Error : ' . $e->getMessage());
       }
     }
     public function nbPicturesByLogin() {
@@ -93,7 +93,7 @@ class Pictures {
         return $nbpic['count(*)'];
       }
       catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
+        die('Error : ' . $e->getMessage());
       }
     }
     public function deletePicture() {
@@ -102,7 +102,7 @@ class Pictures {
         $req->execute(array($this->id_pic, $this->login));
       }
       catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
+        die('Error : ' . $e->getMessage());
       }
     }
   }

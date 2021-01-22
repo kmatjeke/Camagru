@@ -58,6 +58,7 @@
       xhr.send("pic="+encodeURIComponent(picData)+"&img="+imgselected);
       xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          console.log("Entered loop");
           var response = JSON.parse(xhr.responseText);
           response = "data:image/png;base64,"+response;
           data = response;
@@ -79,6 +80,7 @@
         canvas.height = height;
         if (vid == 1) {
           newcanvas.getContext('2d').drawImage(video, 0, 0, width, height);
+          console.log("drew picture");
           var pic = newcanvas.toDataURL('image/png');
           mergePicAndDisplay(pic);
         }

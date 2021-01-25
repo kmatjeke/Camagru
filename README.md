@@ -8,15 +8,25 @@ Creating a website simply emulating instagram.
 
 Xampp is the core of this project. XAMPP is an abbreviation for cross-platform, Apache, MySQL, PHP and Perl, and it allows you to build websites offline, on a local web server on your computer. This simple and lightweight solution works on Windows, Linux, and Mac – hence the “cross-platform” part.
 
-You need to install and setup your xampp, such as creating a root account with an optional password.
+Once installed you need to setup your MySQL credentials to use the default account,which is: username = root. password = '';
 
-### 2. Steps to run the project
+### 2. Clone project into the XAMPP htdocs folder
 
-Now that you have installed xampp. There's a few steps you need to do in order to run the project.
+which is usually in;
+
+```address
+
+C:\xampp\htdocs
+
+```
+
+### Steps to run the project
+
+Now that you have installed xampp and cloned the project. There's a few steps you need to do in order to run the project.
 
 First
 
-```
+```statement
 
 Open xampp and run the apache and mysql servers.
 
@@ -24,7 +34,7 @@ Open xampp and run the apache and mysql servers.
 
 Second
 
-```
+```statement
 
 Run config/setup.php in order to create your camagru database and all of it's needed tables.
 
@@ -32,7 +42,7 @@ Run config/setup.php in order to create your camagru database and all of it's ne
 
 Third
 
-```
+```statement
 
 run index.php to start the application.
 
@@ -55,3 +65,26 @@ run index.php to start the application.
 7. gallery showing other user's pictures must be paginated.
 
 8. Must be able to take using the webcam or upload from local drive a photo, then edit that photo with stickers or frames. Must then be able to submit that photo to your gallery and timeline.
+
+## programme architecture
+
+The programme uses a loose MVC architecture. The user interacts with a user-interface and sends commands to the controller which executes these commands and when needed makes use of the database. The controller can take data from the databse and display it to the user-interface.
+
+UI(front-end) -> controller(back-end)   -> Database
+Database      -> controller(back-end)   -> UI(front-end)
+
+## Testing
+
+The testing was done manually. Meaning the app was actually used and I observed.
+These are all user expectations. For in depth-testing use marksheet.
+
+Testing database            ->  The camagru database is created and all of it's tables
+Testing webserver           ->  web-server starts with no errors. going to <localhost:8080> takes you to login page
+Testing account creation    ->  Able to create account. Also receiving verification email.
+Testing log in              ->  Able to log in to app. should take you to home page <localhost:8080/home.php>
+Testing changing credentials->  Able to change username,email and password.And subscribe to notifications
+Testing Picture taking/uploading and editing with webcam
+                        ->
+Able to capture with webcam or upload and edit picture.
+Testing gallery functions   ->  Able to view gallery and like/comment on pictures
+Testing log out             ->  Able to log out of app.

@@ -18,8 +18,11 @@ include '../functions/pictures.class.php';
         <meta charset="UTF-8">
         <title>Camera</title>
     </HEAD>
-    <BODY>
+    <HEADER>
         <?php include '../includes/header.php'; ?>
+    </HEADER>
+    <BODY>
+        
     <div class="sticker_list">
         <button id="img1"  style=background-color:#f2f2f2><img src="../imgs/image1.png" class= "sticker"/></button>
         <button id="img2" style=background-color:#f2f2f2><img src="../imgs/image2.png" class= "sticker" /></button>

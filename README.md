@@ -75,8 +75,8 @@ Database      -> controller(back-end)   -> UI(front-end)
 
 ## Testing
 
-The testing was done manually. Meaning the app was actually used and I observed.
-These are all user expectations. For in depth-testing use marksheet.
+The testing was non-automated. Meaning the app was actually used and I noted down how it behaved, and that every function worked as it was supposed to.
+These are all user expectations tests. For in depth-testing I used the official marksheet.
 
 Testing database            ->  The camagru database is created and all of it's tables
 Testing webserver           ->  web-server starts with no errors. going to <localhost:8080> takes you to login page
